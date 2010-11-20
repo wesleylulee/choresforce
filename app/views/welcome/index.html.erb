@@ -1,0 +1,7 @@
+<% if current_user %> 
+	<h1>Dashboard</h1>
+	<p>Hi, <%=h current_user.login %>.</p> 
+<% else %> 
+	<h1>Welcome!</h1>
+	<p>Please <%= link_to "log in", login_path %> to use the system, or <%= link_to "sign up", signup_path %> for a new account.</p> 
+<% end %>

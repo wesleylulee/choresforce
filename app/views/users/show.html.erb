@@ -1,0 +1,16 @@
+<p>
+  <u><h3><%=h @user.login %>'s Profile </h3></u>
+</p>
+
+<p>
+  <b>Rating as Employer:</b> <%=h @user.employer_rating %> (<%=h @user.num_eratings %> ratings)
+</p>
+
+<p>
+  <b>Rating as Worker:</b> <%=h @user.worker_rating %> (<%=h @user.num_wratings %> ratings)
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @user.description %>
+</p>

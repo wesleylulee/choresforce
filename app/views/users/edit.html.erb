@@ -1,0 +1,27 @@
+<h1>Edit Account Details</h1>
+
+<%= error_messages_for :user %>
+<% form_for @user do |f| -%>
+<p><%= f.label :login %><br/>
+<%= f.text_field :login %></p>
+
+<p><%= f.label :email %><br/>
+<%= f.text_field :email %></p>
+
+<a href="#" onClick="document.getElementById('password_change').style.display='';"> Change your Password </a>
+<div id="password_change" style="display:none;">
+	<p><%= f.label :password %><br/>
+	<%= f.password_field :password %></p>
+
+	<p><%= f.label :password_confirmation, 'Confirm Password' %><br/>
+	<%= f.password_field :password_confirmation %></p>
+</div>
+
+<p><%= f.label :zipcode, 'Zip Code' %><br/>
+<%= f.text_field :zipcode %></p>
+
+<p><%= f.label :description, 'Description' %><br/>
+<%= f.text_area :description %></p>
+
+<p><%= f.submit 'Update' %></p>
+<% end -%>

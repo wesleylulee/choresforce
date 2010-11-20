@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" /> 
+	<title>Choresforce <%= controller.action_name %></title> 
+	<%= stylesheet_link_tag 'template' %>
+	<LINK REL="SHORTCUT ICON" HREF="/favicon.ico">	
+</head> 
+<body> 
+<div class="page_frame">
+	<div id="header">
+		<%= link_to '<span id="logo">ChoresForce&#8480;</span>', root_url, :id=>'logo_link' %>
+		<span id="header_nav">
+			<%= link_to 'Home', root_url %> |
+			<% if current_user %> 
+				<%= link_to 'Account', account_path %> |
+				<%= link_to 'Logout', logout_path %>
+				<i>(<%= current_user.login %>) </i>
+			<% else %> 
+				<%= link_to "Login", login_path %> | 
+				<%= link_to "Register", signup_path %> 
+			<% end %>
+		</span>
+	</div>
+
+	<div id="main_wrapper">
+		<div id="sidebar">
+		<%= form_tag :controller => 'listings', :action => 'process_search'%>
+   		<%= text_field "title", "title", :placeholder=>'Search for work', :size=>23 %><br>
+   		Category: <%= select_tag "category", 
+				"<option>All</option><option>%s</option>"%Listing::CATEGORIES.join('</option><option>') %><br>
+   		Within a <%= text_field("radius", "radius", :value=>"5", :size=>2) %> mile radius.<br>
+   		Number of Results: <%= select_tag "numResults", "<option>50</option><option>100</option><option>200</option><option>400</option><option>All</option>" %><br>
+   		<%= submit_tag "Search" %> 
+		</form>
+		<i>^^ NOT FUNCTIONAL ATM</i><hr>
+
+		<p><b> Quick Links </b><br>
+		<%= link_to "Post a Work Oppurtunity", new_listing_path %>
+		</p>
+		</div>
+	
+		<div id="content">
+			<% if flash[:notice]%> 
+			<p style="color: green"><%= flash[:notice] %></p> 
+			<% end %> 
+			<% if flash[:error] %> 
+			<p style="color: red"><%= flash[:error] %></p> 
+			<% end %> 
+			<%= yield %> 
+		</div>
+	
+		<div id ="footer" class="clr">
+		Copyright &#169; 2010 Varad Kishore, Wesley Lee, Dennis Zhu, Daisy Zhou. In Cooperation with People's Labs Inc. 
+		</div>
+	</div>
+</div>
+</body> 
+</html>

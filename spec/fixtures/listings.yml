@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  title: MyString
+  category: MyString
+  zipcode: 1
+  description: MyText
+  approx_payment: 9.99
+
+two:
+  user_id: 1
+  title: MyString
+  category: MyString
+  zipcode: 1
+  description: MyText
+  approx_payment: 9.99

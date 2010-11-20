@@ -1,0 +1,23 @@
+<p>
+  <b>User:</b>
+  <%=h @offer.user_id %>
+</p>
+
+<p>
+  <b>Listing:</b>
+  <%=h @offer.listing_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h @offer.amount %>
+</p>
+
+<p>
+  <b>Distance:</b>
+  <%=h @offer.distance %>
+</p>
+
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

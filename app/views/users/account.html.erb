@@ -1,0 +1,30 @@
+<p>
+  <h3>My Account </h3>
+  <%= link_to 'Edit Account Details', edit_account_path %> | 
+  <%= link_to 'Delete Account', @user, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to 'View Public Profile', @user %>
+</p>
+<p>
+  <b>Login:</b> <%=h @user.login %>
+</p>
+<p>
+  <b>Email:</b> <%=h @user.email %>
+</p>
+
+<p>
+  <b>Zipcode:</b> <%=h @user.zipcode %>
+</p>
+
+<p>
+  <b>Rating as Employer:</b> <%=h @user.employer_rating %> (<%=h @user.num_eratings %> ratings)
+</p>
+
+<p>
+  <b>Rating as Worker:</b> <%=h @user.worker_rating %> (<%=h @user.num_wratings %> ratings)
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @user.description %>
+</p>
+

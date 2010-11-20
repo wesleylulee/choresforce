@@ -1,0 +1,30 @@
+<h2>Post a Work Oppurtunity</h2>
+
+<% form_for(@listing) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.select :category, "<option>%s</option>"%Listing::CATEGORIES.join('</option><option>') %>
+  </p>
+  <p>
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode, :value=>current_user.zipcode %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :approx_payment %><br />
+    $ <%= f.text_field :approx_payment %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', listings_path %>

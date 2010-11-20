@@ -1,0 +1,9 @@
+<% form_for(@offer, :html=>{:class=>'service_offer'}) do |f| %>
+	<%= f.error_messages %>
+	<b> Offer to Work: </b> 
+	Service Charge $ <%= f.text_field :amount, :size=>3 %>
+<!--	<%= f.hidden_field :user_id, :value=>current_user.id %> -->
+	<%= f.hidden_field :listing_id, :value=>list_id %>
+	<%= f.submit 'Submit' %>
+<% end %>
+

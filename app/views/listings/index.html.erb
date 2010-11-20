@@ -1,0 +1,30 @@
+<h1>Listing All Work Oppurtunities</h1>
+
+<table>
+  <tr>
+    <th>Employer</th>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Zipcode</th>
+    <th>Description</th>
+    <th>Approx payment</th>
+  </tr>
+
+<% @listings.each do |listing| %>
+  <tr>
+    <td><%=h link_to listing.user.login, listing.user %></td>
+    <td><%=h listing.title %></td>
+    <td><%=h listing.category %></td>
+    <td><%=h listing.zipcode %></td>
+    <td><%=h listing.description %></td>
+    <td><%=h listing.approx_payment %></td>
+    <td><%= link_to 'Show', listing %></td>
+    <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+    <td><%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New listing', new_listing_path %>
