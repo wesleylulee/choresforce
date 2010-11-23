@@ -17,7 +17,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @offer = Offer.new
-    @past_offers = Offer.find(:all, :conditions=>['user_id = ? and listing_id = ?', current_user.id, @listing.id])
+    @past_offer = Offer.find(:all, :conditions=>['user_id = ? and listing_id = ?', current_user.id, @listing.id]).first
 
     respond_to do |format|
       format.html # show.html.erb

@@ -34,12 +34,16 @@
 <%= link_to 'Back', listings_path %> -->
 
 <% if current_user %>
-	<% if @past_offers != nil %>
-		<span id='past_offers'>
-		<h4> Offer History </h4>
-		You have made '<% @past_offers.count %>' offers to work for this listing: 
-		<i>$<% @past_offers.map {|ofr| ofr.amount.to_f}.join(', $') %></i>
+<% if @past_offer != nil %>
+<% form_for(@past_offer, :html=>{:class=>'service_offer'}) do |f| %>
+	<%= f.error_messages %>
+	<span class='past_offer'> You have made an offer to work for $<%=h @past_offer.amount %> </span>
+	Change your Service Charge? $ <%= f.text_field :amount, :size=>3 %>
+	<%= f.hidden_field :user_id, :value=>current_user.id %>
+	<%= f.hidden_field :listing_id, :value=>@listing.id %>
+	<%= f.submit 'Change' %>
 	<% end %>
+<% else %>
 <% form_for(@offer, :html=>{:class=>'service_offer'}) do |f| %>
 	<%= f.error_messages %>
 	<b> Offer to Work: </b> 
@@ -47,6 +51,7 @@
 	<%= f.hidden_field :user_id, :value=>current_user.id %>
 	<%= f.hidden_field :listing_id, :value=>@listing.id %>
 	<%= f.submit 'Submit' %>
+<% end %>
 <% end %>
 <% end %>
 

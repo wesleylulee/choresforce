@@ -91,6 +91,13 @@ body, p, ol, ul, td {
 	padding: 7px;
 	margin: 5px;
 }
+.past_offer {
+	color: #4A777A;
+	font-style:italic;
+	border-right: 1px solid #000;
+	margin-right: 10px;
+	padding-right: 5px;
+}
 pre {
   background-color: #eee;
   /*padding: 10px;*/
