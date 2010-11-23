@@ -13116,3 +13116,301 @@ Rendering listings/search
   [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
 Completed in 58ms (View: 45, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 15:13:17) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 6240ms (View: 6238, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-23 15:13:51) [GET]
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 127ms (View: 114, DB: 2) | 200 OK [http://localhost/listings]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:14:00) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"god"}, "authenticity_token"=>"JQ8yI5XtL7ibJ81QuKMoH5B+kTOU9hwoj3CZLqhxL4w="}
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 76ms (View: 29, DB: 0) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-23 15:14:34) [GET]
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 51ms (View: 40, DB: 1) | 200 OK [http://localhost/listings]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:14:40) [POST]
+  Parameters: {"category"=>"Gardening", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"JQ8yI5XtL7ibJ81QuKMoH5B+kTOU9hwoj3CZLqhxL4w="}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (category='Gardening') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 58ms (View: 41, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:15:03) [POST]
+  Parameters: {"category"=>"Baby-Sitting", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"JQ8yI5XtL7ibJ81QuKMoH5B+kTOU9hwoj3CZLqhxL4w="}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (category='Baby-Sitting') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 41ms (View: 29, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:15:13) [POST]
+  Parameters: {"category"=>"Baby-Sitting", "commit"=>"Search", "title"=>{"title"=>"please"}, "authenticity_token"=>"JQ8yI5XtL7ibJ81QuKMoH5B+kTOU9hwoj3CZLqhxL4w="}
+Query not in cache, running search.
+  [4;35;1mListing Load (2.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (5)) AND (category='Baby-Sitting') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 141ms (View: 90, DB: 3) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:15:23) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"kill"}, "authenticity_token"=>"JQ8yI5XtL7ibJ81QuKMoH5B+kTOU9hwoj3CZLqhxL4w="}
+Query not in cache, running search.
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (5)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 68ms (View: 43, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:15:27) [POST]
+  Parameters: {"category"=>"Gardening", "commit"=>"Search", "title"=>{"title"=>"kill"}, "authenticity_token"=>"JQ8yI5XtL7ibJ81QuKMoH5B+kTOU9hwoj3CZLqhxL4w="}
+Query not in cache, running search.
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (5)) AND (category='Gardening') [0m
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 30ms (View: 8, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:15:34) [POST]
+  Parameters: {"category"=>"Gardening", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"JQ8yI5XtL7ibJ81QuKMoH5B+kTOU9hwoj3CZLqhxL4w="}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (category='Gardening') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 67ms (View: 48, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 15:35:53) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-23 15:35:56) [GET]
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 35ms (View: 32, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-23 15:36:00) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U=", "login"=>"vladlio", "password"=>"password"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'vladlio') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 77ms (DB: 1) | 302 Found [http://localhost/session]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 15:36:00) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 39ms (View: 37, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:36:03) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 44ms (View: 32, DB: 3) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:36:08) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>" "}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 57ms (View: 41, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:36:12) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 44ms (View: 32, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:36:32) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"sit"}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 116ms (View: 81, DB: 0) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:36:36) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"sitting"}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+Query not in cache, running search.
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (5,4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 67ms (View: 43, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:36:46) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"vladlio"}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 58ms (View: 40, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:36:51) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+Query not in cache, running search.
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (5,4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 48ms (View: 30, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:37:01) [POST]
+  Parameters: {"category"=>"Gardening", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+Query not in cache, running search.
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (5,4)) AND (category='Gardening') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 41ms (View: 27, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:37:07) [POST]
+  Parameters: {"category"=>"Gardening", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (category='Gardening') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 104ms (View: 28, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:37:21) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby sitter"}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+Query not in cache, running search.
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 48ms (View: 29, DB: 3) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:37:51) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"asdfsadf"}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 41ms (View: 29, DB: 0) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:37:55) [POST]
+  Parameters: {"category"=>"Gardening", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (category='Gardening') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 60ms (View: 45, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:37:58) [POST]
+  Parameters: {"category"=>"Carpentary", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (category='Carpentary') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 57ms (View: 40, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:38:01) [POST]
+  Parameters: {"category"=>"Other", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (category='Other') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 132ms (View: 42, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:38:04) [POST]
+  Parameters: {"category"=>"Carpentary", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;35;1mListing Load (2.0ms)[0m   [0mSELECT * FROM "listings" WHERE (category='Carpentary') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 127ms (View: 95, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-23 15:38:08) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Rendering template within layouts/general
+Rendering listings/new
+Completed in 82ms (View: 33, DB: 1) | 200 OK [http://localhost/listings/new]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:38:12) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 66ms (View: 48, DB: 4) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 15:38:21) [POST]
+  Parameters: {"category"=>"Gardening", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"uDWSqUbdNMx7kvArkluYM/SvipZjQFYym23BcJReu5U="}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (category='Gardening') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 51ms (View: 34, DB: 2) | 200 OK [http://localhost/listings/process_search]
