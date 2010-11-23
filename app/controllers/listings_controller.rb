@@ -45,6 +45,31 @@ class ListingsController < ApplicationController
     end
   end
 
+  def search  #search results
+    @results = params[:results] 
+    puts 'WHAT THE HEW IS GOING ON'
+    puts @results.to_s     
+      #if session[:id]!=nil
+	 #flash[:warning] = 'You are already logged in as <a href = "%s/%s">%s</a>. Log-in as a different user?' % [users_url, session[:id], session[:username]]
+      #end
+      #@user.login = params[:login] #usernme
+  end
+
+  def process_search
+      @results = nil
+      if params[:title]["title"].empty?
+		@results = Listing.find(:all)
+      else
+      		@results = Listing.find_with_index(params[:title]["title"])
+      		if @results.length ==0
+			flash[:notice] = "Sorry, your search didn't render any results. Please try again."
+      		end
+      end
+      render 'search', :locals => {:results => @results}
+      #redirect_to :action => 'search', :results => results
+
+  end
+
   # POST /listings
   # POST /listings.xml
   def create

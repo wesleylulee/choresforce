@@ -11903,3 +11903,879 @@ Processing OffersController#index (for 127.0.0.1 at 2010-11-22 20:13:16) [GET]
 Rendering template within layouts/general
 Rendering offers/index
 Completed in 120ms (View: 29, DB: 0) | 200 OK [http://localhost/offers]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-22 21:02:28) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 111ms (View: 108, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-22 21:14:23) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 103ms (View: 99, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-22 21:18:01) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 52ms (View: 50, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-22 21:18:06) [GET]
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 64ms (View: 50, DB: 2) | 200 OK [http://localhost/listings]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:18:21) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"sitter"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id >= 0) ORDER BY listings.id ASC LIMIT 500[0m
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 203ms (View: 13, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:18:28) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 51ms (View: 7, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:19:41) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"sitter"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 45ms (View: 10, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-22 21:20:43) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 41ms (View: 38, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:20:46) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"sitter"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Redirected to http://localhost:3000/listings/search?results%5B%5D=4
+Completed in 40ms (DB: 0) | 302 Found [http://localhost/listings/process_search]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 21:20:46) [GET]
+  Parameters: {"results"=>["4"], "id"=>"search"}
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=search):
+  app/controllers/listings_controller.rb:18:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (96.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-22 21:22:21) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 41ms (View: 37, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:22:28) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Redirected to http://localhost:3000/listings/search?results%5B%5D=4
+Completed in 40ms (DB: 1) | 302 Found [http://localhost/listings/process_search]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 21:22:28) [GET]
+  Parameters: {"results"=>["4"], "id"=>"search"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=search):
+  app/controllers/listings_controller.rb:18:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (43.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-22 21:28:25) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 44ms (View: 42, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:28:30) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Redirected to http://localhost:3000/listings/search?results%5B%5D=4
+Completed in 42ms (DB: 1) | 302 Found [http://localhost/listings/process_search]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 21:28:30) [GET]
+  Parameters: {"results"=>["4"], "id"=>"search"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=search):
+  app/controllers/listings_controller.rb:18:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 21:30:01) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Rendering template within layouts/general
+Rendering listings/new
+Completed in 66ms (View: 32, DB: 1) | 200 OK [http://localhost/listings/new]
+
+
+Processing ListingsController#create (for 127.0.0.1 at 2010-11-22 21:30:26) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "listing"=>{"category"=>"Baby-Sitting", "title"=>"kill the kids", "zipcode"=>"15213", "approx_payment"=>"2", "description"=>"please, goddamn babies"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;36;1mListing Create (2.0ms)[0m   [0;1mINSERT INTO "listings" ("category", "created_at", "title", "zipcode", "updated_at", "approx_payment", "user_id", "description") VALUES('Baby-Sitting', '2010-11-23 05:30:26', 'kill the kids', 15213, '2010-11-23 05:30:26', 2.0, 6, 'please, goddamn babies')[0m
+Redirected to http://localhost:3000/listings/5
+Completed in 102ms (DB: 3) | 302 Found [http://localhost/listings]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 21:30:26) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 5) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;35;1mOffer Load (1.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 6 and listing_id = 5) [0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 63ms (View: 16, DB: 3) | 200 OK [http://localhost/listings/5]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:30:35) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (5,4)) [0m
+Redirected to http://localhost:3000/listings/search?results%5B%5D=4&results%5B%5D=5
+Completed in 40ms (DB: 0) | 302 Found [http://localhost/listings/process_search]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 21:30:36) [GET]
+  Parameters: {"results"=>["4", "5"], "id"=>"search"}
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=search):
+  app/controllers/listings_controller.rb:18:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 21:33:55) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 5) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;36;1mOffer Load (0.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 6 and listing_id = 5) [0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 58ms (View: 11, DB: 1) | 200 OK [http://localhost/listings/5]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:34:14) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (5,4)) [0m
+Redirected to http://localhost:3000/listings/search?results%5B%5D=4&results%5B%5D=5
+Completed in 40ms (DB: 0) | 302 Found [http://localhost/listings/process_search]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 21:34:14) [GET]
+  Parameters: {"results"=>["4", "5"], "id"=>"search"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=search):
+  app/controllers/listings_controller.rb:18:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 21:37:45) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 5) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;35;1mOffer Load (0.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 6 and listing_id = 5) [0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 120ms (View: 13, DB: 2) | 200 OK [http://localhost/listings/5]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:37:52) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (5,4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 44ms (View: 5, DB: 0) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:38:51) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (5,4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 46ms (View: 7, DB: 3) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:49:03) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"son"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 43ms (View: 7, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 21:53:31) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"son"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 51ms (View: 13, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:01:27) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"son"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 54ms (View: 12, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-11-22 22:02:25) [GET]
+  Parameters: {"id"=>"process_search"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=process_search):
+  app/controllers/listings_controller.rb:18:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (43.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-22 22:05:47) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Completed in 42ms (View: 39, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:06:04) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>"baby"}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id IN (5,4)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 47ms (View: 8, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:06:22) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 43ms (View: 5, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:10:11) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 41ms (View: 6, DB: 0) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:10:13) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 41ms (View: 5, DB: 0) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:10:15) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 39ms (View: 5, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:10:54) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 45ms (View: 10, DB: 2) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:13:12) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+
+NoMethodError (undefined method `[]' for :all:Symbol):
+  app/controllers/listings_controller.rb:61:in `process_search'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:25:02) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+Query not in cache, running search.
+
+NoMethodError (undefined method `[]' for :all:Symbol):
+  app/controllers/listings_controller.rb:61:in `process_search'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:25:20) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+ERROR: compiling _run_erb_app47views47listings47search46html46erb RAISED compile error
+C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:33: syntax error, unexpected kENSURE, expecting kEND
+C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:35: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47listings47search46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Search Results</h1>\n\n<table>\n"
+
+
+;  if @results!=nil ; @output_buffer.concat "\n<!---\n  <tr>\n    <th>Employer</th>\n    <th>Title</th>\n    <th>Category</th>\n    <th>Description</th>\n    <th>Approx payment</th>\n    <th>Zipcode</th>\n  </tr> -->\n\t"
+
+
+
+
+
+
+
+
+
+;  @results.each do |listing| ; @output_buffer.concat "\n\t"
+;  link_to 'Show', listing do ; @output_buffer.concat "\n  \t<tr>\n    \t<td>"
+
+; @output_buffer.concat((h listing.user.login ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["title"] ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["category"] ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["description"] ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["approx_payment"] ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["zipcode"] ).to_s); @output_buffer.concat "</td>\n  \t</tr>\n\t</a>\n\t"
+
+
+;  end ; @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to 'New listing', new_listing_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:35:in `compile!'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:942:in `render_without_benchmark'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Users/Varad/Documents/CS169/choresforce/app/controllers/listings_controller.rb:68:in `process_search'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:33: syntax error, unexpected kENSURE, expecting kEND
+C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:35: syntax error, unexpected $end, expecting kEND) on line #33 of app/views/listings/search.html.erb:
+30: 
+31: <%= link_to 'New listing', new_listing_path %>
+
+    app/views/listings/search.html.erb:35:in `compile!'
+    app/controllers/listings_controller.rb:68:in `process_search'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (51.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:27:45) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+ERROR: compiling _run_erb_app47views47listings47search46html46erb RAISED compile error
+C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:33: syntax error, unexpected kENSURE, expecting kEND
+C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:35: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47listings47search46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Search Results</h1>\n\n<table>\n"
+
+
+;  if @results!=nil ; @output_buffer.concat "\n<!---\n  <tr>\n    <th>Employer</th>\n    <th>Title</th>\n    <th>Category</th>\n    <th>Description</th>\n    <th>Approx payment</th>\n    <th>Zipcode</th>\n  </tr> -->\n\t"
+
+
+
+
+
+
+
+
+
+;  @results.each do |listing| ; @output_buffer.concat "\n\t"
+;  link_to 'Show', listing do ; @output_buffer.concat "\n  \t<tr>\n    \t<td>"
+
+; @output_buffer.concat((h listing.user.login ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["title"] ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["category"] ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["description"] ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["approx_payment"] ).to_s); @output_buffer.concat "</td>\n    \t<td>"
+; @output_buffer.concat((h listing["zipcode"] ).to_s); @output_buffer.concat "</td>\n  \t</tr>\n\t</a>\n\t"
+
+
+;  end ; @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to 'New listing', new_listing_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:35:in `compile!'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:942:in `render_without_benchmark'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Users/Varad/Documents/CS169/choresforce/app/controllers/listings_controller.rb:68:in `process_search'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:33: syntax error, unexpected kENSURE, expecting kEND
+C:/Users/Varad/Documents/CS169/choresforce/app/views/listings/search.html.erb:35: syntax error, unexpected $end, expecting kEND) on line #33 of app/views/listings/search.html.erb:
+30: 
+31: <%= link_to 'New listing', new_listing_path %>
+
+    app/views/listings/search.html.erb:35:in `compile!'
+    app/controllers/listings_controller.rb:68:in `process_search'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:28:25) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+
+ActionView::TemplateError (undefined method `stringify_keys' for #<Listing:0x9294618>) on line #15 of app/views/listings/search.html.erb:
+12:     <th>Zipcode</th>
+13:   </tr> -->
+14: 	<% @results.each do |listing| %>
+15: 	<% link_to 'Show', listing do %>
+16:   	<tr>
+17:     	<td><%=h listing.user.login %></td>
+18:     	<td><%=h listing["title"] %></td>
+
+    app/views/listings/search.html.erb:15
+    app/views/listings/search.html.erb:14:in `each'
+    app/views/listings/search.html.erb:14
+    app/controllers/listings_controller.rb:68:in `process_search'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:28:52) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+
+ActionView::TemplateError (undefined method `stringify_keys' for #<Listing:0x9014a60>) on line #15 of app/views/listings/search.html.erb:
+12:     <th>Zipcode</th>
+13:   </tr> -->
+14: 	<% @results.each do |listing| %>
+15: 	<% link_to('Show', listing) do %>
+16:   	<tr>
+17:     	<td><%=h listing.user.login %></td>
+18:     	<td><%=h listing["title"] %></td>
+
+    app/views/listings/search.html.erb:15
+    app/views/listings/search.html.erb:14:in `each'
+    app/views/listings/search.html.erb:14
+    app/controllers/listings_controller.rb:68:in `process_search'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (126.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:29:29) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 56ms (View: 17, DB: 3) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:39:48) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 54ms (View: 18, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-22 22:40:07) [POST]
+  Parameters: {"category"=>"All", "commit"=>"Search", "title"=>{"title"=>""}, "authenticity_token"=>"0icsi3ng+7r+atL6pMo6htdDXuisne5/8x//rLHkSYc=", "numResults"=>"50"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) LIMIT 1[0m
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 52ms (View: 17, DB: 1) | 200 OK [http://localhost/listings/process_search]

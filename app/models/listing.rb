@@ -5,4 +5,5 @@ class Listing < ActiveRecord::Base
   validates_presence_of		:title
   validates_presence_of		:category
   validates_presence_of		:approx_payment
+  acts_as_indexed :fields => [ :title, :category, :description, :approx_payment ]
 end
