@@ -1,0 +1,138 @@
+Using the default profile...
+Feature: Create New Account
+  As a new user
+  So that I can use the application
+  I want to be able to create an account
+
+  Scenario: Successful Account Creation                   # features\create_new_account.feature:7
+    Given I click on the register link                    # features/step_definitions/choresforce_steps.rb:18
+    And I enter "test" in the login field                 # features/step_definitions/choresforce_steps.rb:23
+    And I enter "test@test.com" in the email field        # features/step_definitions/choresforce_steps.rb:27
+    And I enter "password" in the password field          # features/step_definitions/choresforce_steps.rb:31
+    And I enter "94704" in the zip code field             # features/step_definitions/choresforce_steps.rb:36
+    And I enter "blah blah blah" in the description field # features/step_definitions/choresforce_steps.rb:40
+    When I click on sign up                               # features/step_definitions/choresforce_steps.rb:44
+    Then I should see a page saying that I am logged in   # features/step_definitions/choresforce_steps.rb:48
+
+  Scenario: Unsuccessful Account Creation                                      # features\create_new_account.feature:17
+    Given I click on the register link                                         # features/step_definitions/choresforce_steps.rb:18
+    And I enter "ab" in the login field                                        # features/step_definitions/choresforce_steps.rb:23
+    And I enter "test@test.com" in the email field                             # features/step_definitions/choresforce_steps.rb:27
+    And I enter "password" in the password field                               # features/step_definitions/choresforce_steps.rb:31
+    And I enter "94704" in the zip code field                                  # features/step_definitions/choresforce_steps.rb:36
+    And I enter "blah blah blah" in the description field                      # features/step_definitions/choresforce_steps.rb:40
+    When I click on sign up                                                    # features/step_definitions/choresforce_steps.rb:44
+    Then I should see an error message telling me the login field is too short # features/step_definitions/choresforce_steps.rb:52
+
+Feature: Job Search
+  As a job seeker
+  So that I can find work
+  I want to view job listings in my area
+
+  Scenario: All Categories Search                                           # features\job_search.feature:7
+    Given I enter "gardening" in the search box                             # features/step_definitions/choresforce_steps.rb:55
+    And the category selected as "All"                                      # features/step_definitions/choresforce_steps.rb:61
+    When I click search                                                     # features/step_definitions/choresforce_steps.rb:65
+    And all the results should include "gardening" in the title or category # features/step_definitions/choresforce_steps.rb:70
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/choresforce_steps.rb:71:in `/^all the results should include "([^"]*)" in the title or category$/'
+      features\job_search.feature:11:in `And all the results should include "gardening" in the title or category'
+
+  Scenario: Specific Category Search                                     # features\job_search.feature:13
+    Given I enter "mowing" in the search box                             # features/step_definitions/choresforce_steps.rb:55
+    And the category selected as "Gardening"                             # features/step_definitions/choresforce_steps.rb:61
+    When I click search                                                  # features/step_definitions/choresforce_steps.rb:65
+    And all the results should be of the cateogry "Gardening"            # features/step_definitions/choresforce_steps.rb:77
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/choresforce_steps.rb:78:in `/^all the results should be of the cateogry "([^"]*)"$/'
+      features\job_search.feature:17:in `And all the results should be of the cateogry "Gardening"'
+    And all the results should include "mowing" in the title or category # features/step_definitions/choresforce_steps.rb:70
+
+  Scenario: Empty Search                                                        # features\job_search.feature:20
+    Given I enter "" in the search box                                          # features/step_definitions/choresforce_steps.rb:55
+    And the category selected as "All"                                          # features/step_definitions/choresforce_steps.rb:61
+    When I click search                                                         # features/step_definitions/choresforce_steps.rb:65
+    Then I should see a page with the message "Please enter search parameters." # features/step_definitions/choresforce_steps.rb:82
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/choresforce_steps.rb:83:in `/^I should see a page with the message "([^"]*)"$/'
+      features\job_search.feature:24:in `Then I should see a page with the message "Please enter search parameters."'
+
+Feature: Offer Acceptance
+  As an employer
+  So that I can choose a worker
+  I want to be able to accept an offer
+
+  Scenario: Accepting an Offer                                                                          # features\offer_acceptance.feature:7
+    Given I am on a job listing page that I own                                                         # features/step_definitions/web_steps.rb:15
+    And I see a frame with all the offers                                                               # features/step_definitions/choresforce_steps.rb:87
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/choresforce_steps.rb:88:in `/^I see a frame with all the offers$/'
+      features\offer_acceptance.feature:9:in `And I see a frame with all the offers'
+    When I click the accept button for an offer                                                         # features/step_definitions/choresforce_steps.rb:91
+    Then the offers frame should be replaced by the message "Offer for [username of worker] successful" # features/step_definitions/choresforce_steps.rb:95
+    And it should show a link to the worker's profile                                                   # features/step_definitions/choresforce_steps.rb:99
+
+Feature: Posting a Job
+  As a employer
+  So that I can find a worker
+  I want to post a work opportunity
+
+  Scenario: Successful Posting                                                  # features\posting_a_job.feature:7
+    Given I am on the job posting page                                          # features/step_definitions/web_steps.rb:15
+    And I enter "Lawn Mowing" in the title field                                # features/step_definitions/choresforce_steps.rb:103
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/choresforce_steps.rb:104:in `/^I enter "([^"]*)" in the title field$/'
+      features\posting_a_job.feature:9:in `And I enter "Lawn Mowing" in the title field'
+    And I select "Gardening" in the category menu                               # features/step_definitions/choresforce_steps.rb:107
+    And I enter "test!!" in the description field                               # features/step_definitions/choresforce_steps.rb:40
+    When I click submit                                                         # features/step_definitions/choresforce_steps.rb:111
+    And I should see the public job page                                        # features/step_definitions/choresforce_steps.rb:115
+    And I should see a message "Job Successfully Posted" at the top of the page # features/step_definitions/choresforce_steps.rb:119
+
+  Scenario: Posting a Job with Empty Fields                    # features\posting_a_job.feature:16
+    Given I am on the job posting page                         # features/step_definitions/web_steps.rb:15
+    And I enter "" in the title field                          # features/step_definitions/choresforce_steps.rb:103
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/choresforce_steps.rb:104:in `/^I enter "([^"]*)" in the title field$/'
+      features\posting_a_job.feature:18:in `And I enter "" in the title field'
+    When I click submit                                        # features/step_definitions/choresforce_steps.rb:111
+    Then I should see a page                                   # features/step_definitions/choresforce_steps.rb:123
+    And it should have a message saying which fields are empty # features/step_definitions/choresforce_steps.rb:127
+
+Feature: Service Offer
+  As a job seeker
+  So that I can offer my services
+  I want to make an offer on a job listing
+
+  Scenario: Sucessfuly Make an Offer                # features\service_offer.feature:7
+    Given I am logged in                            # features/step_definitions/choresforce_steps.rb:131
+    And I am on a chores listing page               # features/step_definitions/choresforce_steps.rb:136
+    When I enter "5" in the service charge field    # features/step_definitions/choresforce_steps.rb:140
+    And click on submit                             # features/step_definitions/choresforce_steps.rb:144
+    Then I should be taken back to a listings page  # features/step_definitions/choresforce_steps.rb:148
+    And the page should have a confirmation message # features/step_definitions/choresforce_steps.rb:152
+
+  Scenario: Make an Offer With Invalid Amount           # features\service_offer.feature:15
+    Given I am logged in                                # features/step_definitions/choresforce_steps.rb:131
+    And I am on a chores listing page                   # features/step_definitions/choresforce_steps.rb:136
+    When I enter "x" in the service charge field        # features/step_definitions/choresforce_steps.rb:140
+    And click on submit                                 # features/step_definitions/choresforce_steps.rb:144
+    Then I should be taken back to a listings page      # features/step_definitions/choresforce_steps.rb:148
+    And the page should have a message saying the field # features/step_definitions/choresforce_steps.rb:156
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/choresforce_steps.rb:157:in `/^the page should have a message saying the field$/'
+      features\service_offer.feature:21:in `And the page should have a message saying the field'
+
+Feature: View Worker Ratings
+  As an employer
+  So that I can choose a worker
+  I want to be able to view ratings and profiles of the workers
+
+  Scenario: View User Rating and Description                                                                              # features\view_worker_ratings.feature:7
+    Given I click the username of "test_worker"                                                                           # features/step_definitions/choresforce_steps.rb:161
+    Then I should see "test_worker"'s profile                                                                             # features/step_definitions/choresforce_steps.rb:169
+    And I should see the worker's username "test_worker", and his rating 3 out of 5, and description "I am a test worker" # features/step_definitions/choresforce_steps.rb:180
+
+11 scenarios (7 pending, 4 passed)
+61 steps (12 skipped, 7 pending, 42 passed)
+0m10.114s

@@ -1,0 +1,298 @@
+# Logfile created on Tue Nov 23 02:26:18 -0800 2010REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:26:28) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 5788ms (View: 5786, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /listings/process_search with {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>"gardening"}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 02:26:34) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>"gardening"}}
+Query not in cache, running search.
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: listings: SELECT * FROM "listings" WHERE (listings.id >= 0) ORDER BY listings.id ASC LIMIT 500[0m
+
+
+Processing ApplicationController#process_search (for 127.0.0.1 at 2010-11-23 02:26:34) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>"gardening"}}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /listings/process_search with {"commit"=>"Search", "category"=>"Gardening", "title"=>{"title"=>"mowing"}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 02:26:34) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"Gardening", "title"=>{"title"=>"mowing"}}
+Query not in cache, running search.
+  [4;35;1mListing Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: listings: SELECT * FROM "listings" WHERE (listings.id >= 0) ORDER BY listings.id ASC LIMIT 500[0m
+
+
+Processing ApplicationController#process_search (for 127.0.0.1 at 2010-11-23 02:26:34) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"Gardening", "title"=>{"title"=>"mowing"}}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /listings/process_search with {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>""}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 02:26:34) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>""}}
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: listings: SELECT * FROM "listings" [0m
+
+
+Processing ApplicationController#process_search (for 127.0.0.1 at 2010-11-23 02:26:34) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>""}}
+REQUESTING PAGE: GET /listings with {} and HTTP headers {}
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+  [4;35;1mListing Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: listings: SELECT * FROM "listings" [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+REQUESTING PAGE: GET /listings with {} and HTTP headers {}
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: listings: SELECT * FROM "listings" [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+REQUESTING PAGE: GET /listings with {} and HTTP headers {}
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+  [4;35;1mListing Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: listings: SELECT * FROM "listings" [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /login with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-23 02:26:34) [GET]
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /session with {"commit"=>"Log in", "password"=>"password", "login"=>"test_worker"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-23 02:26:34) [POST]
+  Parameters: {"commit"=>"Log in", "password"=>"password", "login"=>"test_worker"}
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-23 02:26:34) [POST]
+  Parameters: {"commit"=>"Log in", "password"=>"password", "login"=>"test_worker"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:28:31) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 5835ms (View: 5833, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+WARNING: Can't mass-assign these protected attributes: worker_rating, num_eratings, employer_rating, num_wratings
+Rendering template within layouts/general
+Rendering users/new
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"zipcode"=>"94704", "password_confirmation"=>"password", "description"=>"blah blah blah", "password"=>"password", "login"=>"test", "email"=>"test@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-23 02:28:37) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"password_confirmation"=>"password", "zipcode"=>"94704", "description"=>"blah blah blah", "login"=>"test", "password"=>"password", "email"=>"test@test.com"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'test') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (20.0ms)[0m   [0;1mINSERT INTO "users" ("salt", "created_at", "employer_rating", "num_eratings", "worker_rating", "crypted_password", "remember_token_expires_at", "num_wratings", "updated_at", "zipcode", "remember_token", "description", "login", "email") VALUES('6f5315a64b7343732b921ab625dc7bd9730cd24d', '2010-11-23 10:28:37', 0.0, 0, 0.0, 'ea7198079721adcf31533dfc344f07be36181b77', NULL, 0, '2010-11-23 10:28:37', 94704, NULL, 'blah blah blah', 'test', 'test@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 27ms (DB: 21) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+WARNING: Can't mass-assign these protected attributes: worker_rating, num_eratings, employer_rating, num_wratings
+Rendering template within layouts/general
+Rendering users/new
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"zipcode"=>"94704", "password_confirmation"=>"password", "description"=>"blah blah blah", "password"=>"password", "login"=>"ab", "email"=>"test@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-23 02:28:37) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"password_confirmation"=>"password", "zipcode"=>"94704", "description"=>"blah blah blah", "login"=>"ab", "password"=>"password", "email"=>"test@test.com"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'ab') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1[0m
+Rendering template within layouts/general
+Rendering users/new
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://www.example.com/users]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /listings/process_search with {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>"gardening"}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 02:28:37) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>"gardening"}}
+Query not in cache, running search.
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE (listings.id >= 0) ORDER BY listings.id ASC LIMIT 500[0m
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (3)) [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 136ms (View: 6, DB: 1) | 200 OK [http://www.example.com/listings/process_search]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /listings/process_search with {"commit"=>"Search", "category"=>"Gardening", "title"=>{"title"=>"mowing"}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 02:28:37) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"Gardening", "title"=>{"title"=>"mowing"}}
+Query not in cache, running search.
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE (listings.id IN (3)) AND (category='Gardening') [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 8ms (View: 5, DB: 1) | 200 OK [http://www.example.com/listings/process_search]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /listings/process_search with {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>""}} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-11-23 02:28:37) [POST]
+  Parameters: {"commit"=>"Search", "category"=>"All", "title"=>{"title"=>""}}
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/search
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/listings/process_search]
+REQUESTING PAGE: GET /listings with {} and HTTP headers {}
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://www.example.com/listings]
+REQUESTING PAGE: GET /listings with {} and HTTP headers {}
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 15ms (View: 12, DB: 2) | 200 OK [http://www.example.com/listings]
+REQUESTING PAGE: GET /listings with {} and HTTP headers {}
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://www.example.com/listings]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET /login with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-23 02:28:37) [GET]
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /session with {"commit"=>"Log in", "password"=>"password", "login"=>"test_worker"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-23 02:28:37) [POST]
+  Parameters: {"commit"=>"Log in", "password"=>"password", "login"=>"test_worker"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'test_worker') LIMIT 1[0m
+Failed login for 'test_worker' from 127.0.0.1 at Tue Nov 23 10:28:37 UTC 2010
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/session]

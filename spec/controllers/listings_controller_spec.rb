@@ -51,6 +51,7 @@ describe ListingsController do
         Listing.stub(:new).and_return(mock_listing(:save => true))
         post :create, :listing => {}
         response.should redirect_to(listing_url(mock_listing))
+	#	response.should contain("Listing was successfully created")
       end
     end
 

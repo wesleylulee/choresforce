@@ -1,0 +1,5 @@
+I am writing about FoodRun by Swaraj Banerjee, Justin Chu, Cliff Engle, and Harry Jiang.
+
+I think this team has made the most progress as not only does log in work, the actual features of adding recipes, adding reviews, and viewing available recipes all work very nicely. In addition to that, the website design looks aesthetically pleasing. There are certain features that do not function such as search but I would expect that to be done for milestone 3. As to how we stand, I think this group is slightly ahead of us based on what's been deployed for milestone 2. I think we are making good progress too though as for this milestone, we have our search function fully working, we have all log in functions working, and we have most of the adding listing, deleting listings, and making offers working.
+
+I also looked at their code, RSPec, and Cucumber step definition tests and outputs. This project is excellent at keeping all their test cases separated and nicely organized (we have all our step definition in one big file and it gets really confusing after a while). I will consider doing what they did for the rest of the project.

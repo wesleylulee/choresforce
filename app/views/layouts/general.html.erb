@@ -31,10 +31,10 @@
    		Category: <%= select_tag "category", 
 				"<option>All</option><option>%s</option>"%Listing::CATEGORIES.join('</option><option>') %><br>
    		Within a <%= text_field("radius", "radius", :value=>"x", :size=>2, :disabled=>true) %> mile radius.<br>
-   		Number of Results: <%= select_tag "numResults", "<option>50</option><option>100</option><option>200</option><option>400</option><option>All</option>" %><br>
+   		Number of Results: <%= select_tag "numResults", "<option>50</option><option>100</option><option>200</option><option>400</option><option>All</option>",  :disabled=>true %><br>
    		<%= submit_tag "Search" %> 
 		</form>
-		<i>^^ NOT FUNCTIONAL ATM</i><hr>
+		<hr>
 
 		<p><b> Quick Links </b><br>
 		<%= link_to "Post a Work Oppurtunity", new_listing_path %>

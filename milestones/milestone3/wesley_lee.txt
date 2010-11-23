@@ -1,0 +1,8 @@
+The white-board application has many cool features. In general,
+the UI is very intuitive and easy to use. The entire application
+also runs very smoothly. I'm not sure if this feature works cause
+I couldn't test it with anyone else, but the feature that allows
+you to chat while drawing something on the white board is really
+cool. Upon looking at the github repository, I really like how 
+elegant the database schema is. There are very few models but
+it gets the job done.

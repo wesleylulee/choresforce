@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   layout 'general'
-  before_filter :login_required, :except=>[:index, :show]
+  before_filter :login_required, :except=>[:index, :show, :search, :process_search]
   # GET /listings
   # GET /listings.xml
   def index
@@ -47,7 +47,6 @@ class ListingsController < ApplicationController
 
   def search  #search results
     @results = params[:results] 
-    puts 'WHAT THE HEW IS GOING ON'
     puts @results.to_s     
       #if session[:id]!=nil
 	 #flash[:warning] = 'You are already logged in as <a href = "%s/%s">%s</a>. Log-in as a different user?' % [users_url, session[:id], session[:username]]
@@ -57,17 +56,24 @@ class ListingsController < ApplicationController
 
   def process_search
       @results = nil
-      if params[:title]["title"].empty?
-		@results = Listing.find(:all)
+      if params[:category]=='All'
+	if params[:title]["title"].empty?
+	  @results = Listing.find(:all)
+	else
+	  @results = Listing.find_with_index(params[:title]["title"])
+        end
       else
-      		@results = Listing.find_with_index(params[:title]["title"])
-      		if @results.length ==0
-			flash[:notice] = "Sorry, your search didn't render any results. Please try again."
-      		end
+	if params[:title]["title"].empty?
+	  @results = Listing.find(:all, :conditions=>['category=?', params[:category]])
+        else
+	  @results = Listing.find_with_index(params[:title]["title"], {:conditions=>['category=?', params[:category]]})
+        end
+      end
+
+      if @results.length ==0
+	flash[:notice] = "Sorry, your search didn't render any results. Please try again."
       end
       render 'search', :locals => {:results => @results}
-      #redirect_to :action => 'search', :results => results
-
   end
 
   # POST /listings
