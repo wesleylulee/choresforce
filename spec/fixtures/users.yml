@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  login: MyString
+  email: MyString
+  crypted_password: MyString
+  salt: MyString
+  remember_token: MyString
+  remember_token_expires_at: 2010-11-22 23:27:16
+  zipcode: 1
+  employer_rating: 9.99
+  num_eratings: 1
+  worker_rating: 9.99
+  num_wratings: 1
+  description: MyText
+
+two:
+  login: MyString
+  email: MyString
+  crypted_password: MyString
+  salt: MyString
+  remember_token: MyString
+  remember_token_expires_at: 2010-11-22 23:27:16
+  zipcode: 1
+  employer_rating: 9.99
+  num_eratings: 1
+  worker_rating: 9.99
+  num_wratings: 1
+  description: MyText
