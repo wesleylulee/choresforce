@@ -1,0 +1,23 @@
+<p>
+  <b>From:</b>
+  <%=h @message.from %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%=h @message.to %>
+</p>
+
+<p>
+  <b>Listing:</b>
+  <%=h @message.listing_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @message.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>

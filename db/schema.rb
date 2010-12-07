@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101108063243) do
+ActiveRecord::Schema.define(:version => 20101207091548) do
 
   create_table "listings", :force => true do |t|
     t.integer  "user_id"
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(:version => 20101108063243) do
     t.integer  "zipcode"
     t.text     "description"
     t.decimal  "approx_payment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "active",          :default => true
+    t.float    "worker_rating"
+    t.float    "employer_rating"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "from"
+    t.integer  "to"
+    t.integer  "listing_id"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20101108063243) do
     t.decimal  "distance"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "accepted",   :default => false
   end
 
   create_table "users", :force => true do |t|

@@ -16,9 +16,25 @@ class ListingsController < ApplicationController
   # GET /listings/1.xml
   def show
     @listing = Listing.find(params[:id])
-    @offer = Offer.new
-    @past_offer = Offer.find(:all, :conditions=>['user_id = ? and listing_id = ?', current_user.id, @listing.id]).first
-
+    if @listing.active==false
+	flash.now[:warning] = 'This listing is now inactive. Unless the employer choses to use another worker, it will not be activated again.'
+    end
+    if current_user and current_user.id!=@listing.user.id
+	@offer = Offer.new
+	@past_offer = Offer.find(:first, :conditions=>['user_id = ? and listing_id = ?', current_user.id, @listing.id])
+	if @past_offer!=nil and @past_offer.accepted==true
+		flash.now[:notice] = 'Congratulations! Your offer to work for $' + @past_offer.amount.to_s + ' has been accepted. Check your messages below to recieve further information from the employer'
+	end
+	@new_message = Message.new
+	@messages = Message.find(:all, :conditions=>{:from=>[current_user.id, @listing.user.id], :to=>[@listing.user.id, current_user.id], :listing_id=>@listing.id}, :order=>"created_at")
+    elsif current_user and current_user.id==@listing.user.id
+	@offers = Offer.find(:all, :conditions=>{:listing_id => @listing.id})
+	@new_message = Message.new
+	@messageblocks = {}
+	@offers.each do |offer|
+		@messageblocks[offer.id] = Message.find(:all, :conditions=>{:from=>[current_user.id, offer.user.id ], :to=>[current_user.id, offer.user.id], :listing_id=>@listing.id}, :order=>"created_at")
+	end
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @past_offers }
@@ -93,6 +109,42 @@ class ListingsController < ApplicationController
     end
   end
 
+  def acceptOffer
+	@listing = Listing.find(params[:listing_id])
+	@offer = Offer.find(params[:offer_id])
+	@offer.accepted = true
+	if not @offer.save
+	  flash.now[:error] = 'Error: The offer you selected could not be accepted.'
+	  redirect_to(@listing)
+	end
+	@listing.active = false
+	if not @listing.save
+	  flash.now[:error] = 'Error: The offer you selected was accepted, but the listing was not deactivated. Please contact an administrator immediately.'
+	  redirect_to(@listing)
+	end
+	redirect_to(@listing, :notice => 'You have sucessfully accepted a work offer. You can continue to message the worker to provide him further details as you wish.')
+  end
+
+  def rescindOffer
+	@listing = Listing.find(params[:listing_id])
+	@offer = Offer.find(params[:offer_id])
+	@offer.accepted = false
+	if not @offer.save
+	  flash.now[:error] = 'Error: The offer could not be rescinded.'
+	  redirect_to(@listing)
+	end
+	@listing.active = true
+	if not @listing.save
+	  flash.now[:error] = 'Error: The offer was rescinded, but the listing unable to be reactivated. Please contact an administrator immediately.'
+	  redirect_to(@listing)
+	end
+	redirect_to(@listing, :notice => 'Your listing has now been reactivated. You can choose from one of the other offers, or wait for new offers.')
+  end
+
+  def add_erating
+	flash.new[:warning] = "The rating was " + params["rating"].to_s
+	redirect_to root_path
+  end
   # PUT /listings/1
   # PUT /listings/1.xml
   def update

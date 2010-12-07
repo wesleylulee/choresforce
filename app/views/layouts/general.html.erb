@@ -6,6 +6,10 @@
 	<title>Choresforce <%= controller.action_name %></title> 
 	<%= stylesheet_link_tag 'template' %>
 	<LINK REL="SHORTCUT ICON" HREF="/favicon.ico">	
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag "stars.js" %>
+	<%= javascript_include_tag "prototype.lite.js" %>
+	<%= stylesheet_link_tag 'stars' %>
 </head> 
 <body> 
 <div class="page_frame">
@@ -43,10 +47,13 @@
 	
 		<div id="content">
 			<% if flash[:notice]%> 
-			<p style="color: green"><%= flash[:notice] %></p> 
+			<p class='flash_notice'><%= flash[:notice] %></p> 
+			<% end %> 
+			<% if flash[:warning] %> 
+			<p class='flash_warning'><%= flash[:warning] %></p> 
 			<% end %> 
 			<% if flash[:error] %> 
-			<p style="color: red"><%= flash[:error] %></p> 
+			<p class='flash_error'><%= flash[:error] %></p> 
 			<% end %> 
 			<%= yield %> 
 		</div>
