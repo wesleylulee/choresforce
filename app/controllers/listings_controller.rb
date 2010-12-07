@@ -1,3 +1,5 @@
+include Geokit::Geocoders
+
 class ListingsController < ApplicationController
   layout 'general'
   before_filter :login_required, :except=>[:index, :show, :search, :process_search]
@@ -24,6 +26,7 @@ class ListingsController < ApplicationController
 	@past_offer = Offer.find(:first, :conditions=>['user_id = ? and listing_id = ?', current_user.id, @listing.id])
 	if @past_offer!=nil and @past_offer.accepted==true
 		flash.now[:notice] = 'Congratulations! Your offer to work for $' + @past_offer.amount.to_s + ' has been accepted. Check your messages below to recieve further information from the employer'
+		@place = {:lat=>@listing.lat, :lng=>@listing.lng}
 	end
 	@new_message = Message.new
 	@messages = Message.find(:all, :conditions=>{:from=>[current_user.id, @listing.user.id], :to=>[@listing.user.id, current_user.id], :listing_id=>@listing.id}, :order=>"created_at")
@@ -97,6 +100,9 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(params[:listing])
     @listing.user_id = current_user.id
+	geocode = GoogleGeocoder.geocode(@listing.address)
+	@listing.lat = geocode.lat
+	@listing.lng = geocode.lng
 
     respond_to do |format|
       if @listing.save
@@ -122,6 +128,7 @@ class ListingsController < ApplicationController
 	  flash.now[:error] = 'Error: The offer you selected was accepted, but the listing was not deactivated. Please contact an administrator immediately.'
 	  redirect_to(@listing)
 	end
+	
 	redirect_to(@listing, :notice => 'You have sucessfully accepted a work offer. You can continue to message the worker to provide him further details as you wish.')
   end
 
@@ -150,6 +157,10 @@ class ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id])
 
+	geocode = GoogleGeocoder.geocode(params[:listing][:address])
+	@listing.lat = geocode.lat
+	@listing.lng = geocode.lng
+	
     respond_to do |format|
       if @listing.update_attributes(params[:listing])
         format.html { redirect_to(@listing, :notice => 'Listing was successfully updated.') }

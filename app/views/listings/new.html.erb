@@ -11,8 +11,8 @@
     <%= f.select :category, "<option>%s</option>"%Listing::CATEGORIES.join('</option><option>') %>
   </p>
   <p>
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode, :value=>current_user.zipcode %>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %> <!--- :value=>current_user.address --->
   </p>
   <p>
     <%= f.label :description %><br />

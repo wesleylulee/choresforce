@@ -1,9 +1,16 @@
+include Geokit::Geocoders
+
 class Listing < ActiveRecord::Base
   belongs_to :user
   has_many :offers
   CATEGORIES = ['Baby-Sitting', 'Gardening', 'Carpentary', 'Miscellaneous', 'Other']
-  validates_presence_of		:title
+  validates_presence_of		:address
   validates_presence_of		:category
   validates_presence_of		:approx_payment
-  acts_as_indexed :fields => [ :title, :category, :description, :approx_payment ]
+  validates_presence_of		:lat, :message => "Your address seems to be invalid"
+  validates_presence_of		:lng, :message => "Example Format: 1 Infinite Loop Cupertino, CA 95015"
+
+  acts_as_indexed :fields => [ :address, :category, :description, :approx_payment ]
+ 
+ 
 end

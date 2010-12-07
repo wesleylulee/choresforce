@@ -15,8 +15,8 @@
 </p>
 
 <p>
-  <b>Zipcode: </b>
-  <%=h @listing.zipcode %> (This will soon show distance to your default location)
+  <b>Address: </b>
+  <%=h @listing.address %>
 </p>
 
 <p>
@@ -85,6 +85,17 @@
 		<%= f.submit 'Send' %>
 	<% end %>
 	<% end %>
+	
+	<% if @listing.active==false and current_user and @past_offer != nil and @past_offer.accepted == true %>
+	
+	<img src="http://maps.google.com/maps/api/staticmap?center=<%=h @place[:lat] %>,<%=h @place[:lng] %>&zoom=12&size=400x400&sensor=false">
+	
+	
+	
+	
+	<% end %>
+	
+	
 <% elsif current_user and current_user.id==@listing.user.id%>
 <!--- Logged on User is the Listing Owner 
       Show each User offering to work, their ratings, and offer, and messaging between you and user ---><br>
@@ -132,5 +143,8 @@
 		<% end %>
 	</span>
 	<% end %>
+	
+	
+	
 <% end %>
 

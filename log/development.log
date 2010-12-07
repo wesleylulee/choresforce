@@ -21820,3 +21820,1551 @@ ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
 Rendered rescues/_trace (43.0ms)
 Rendered rescues/_request_and_response (1.0ms)
 Rendering rescues/layout (not_found)
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101105003435)
+Migrating to CreateListings (20101108062117)
+Migrating to CreateOffers (20101108063243)
+Migrating to AddActiveFlagToListing (20101129034438)
+Migrating to CreateMessages (20101204094459)
+Migrating to AddAcceptedFlagToOffers (20101206092242)
+Migrating to AddTempRatingsToListings (20101207091548)
+Migrating to AddGeolocationToListings (20101207103228)
+  [4;36;1mSQL (197.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE TEMPORARY TABLE "altered_listings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "title" varchar(255), "category" varchar(255), "zipcode" integer, "description" text, "approx_payment" decimal, "created_at" datetime, "updated_at" datetime, "active" boolean DEFAULT 't', "worker_rating" float, "employer_rating" float) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("listings")[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mDROP TABLE "listings"[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "listings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "title" varchar(255), "category" varchar(255), "description" text, "approx_payment" decimal, "created_at" datetime, "updated_at" datetime, "active" boolean DEFAULT 't', "worker_rating" float, "employer_rating" float) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_listings")[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mDROP TABLE "altered_listings"[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101105003435)
+Migrating to CreateListings (20101108062117)
+Migrating to CreateOffers (20101108063243)
+Migrating to AddActiveFlagToListing (20101129034438)
+Migrating to CreateMessages (20101204094459)
+Migrating to AddAcceptedFlagToOffers (20101206092242)
+Migrating to AddTempRatingsToListings (20101207091548)
+Migrating to AddGeolocationToListings (20101207103228)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE TEMPORARY TABLE "altered_listings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "title" varchar(255), "category" varchar(255), "zipcode" integer, "description" text, "approx_payment" decimal, "created_at" datetime, "updated_at" datetime, "active" boolean DEFAULT 't', "worker_rating" float, "employer_rating" float) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("listings")[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mDROP TABLE "listings"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "listings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "title" varchar(255), "category" varchar(255), "description" text, "approx_payment" decimal, "created_at" datetime, "updated_at" datetime, "active" boolean DEFAULT 't', "worker_rating" float, "employer_rating" float) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_listings")[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mDROP TABLE "altered_listings"[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mALTER TABLE "listings" ADD "address" varchar(255)[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mALTER TABLE "listings" ADD "lat" decimal[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mALTER TABLE "listings" ADD "lng" decimal[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101207103228')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("listings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mPRAGMA index_list("offers")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 03:00:37) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+
+ActionView::TemplateError (C:/Users/Wesley/Documents/School/UC Berkeley/Fall 2010/CS 169 Software Engineering - Fox/testrepo/choresforce/app/models/listing.rb:15: syntax error, unexpected '=', expecting kEND
+  =begin
+   ^
+C:/Users/Wesley/Documents/School/UC Berkeley/Fall 2010/CS 169 Software Engineering - Fox/testrepo/choresforce/app/models/listing.rb:20: syntax error, unexpected '=', expecting kEND
+  =end
+   ^) on line #36 of app/views/layouts/general.html.erb:
+33: 		<%= form_tag :controller => 'listings', :action => 'process_search'%>
+34:    		<%= text_field "title", "title", :placeholder=>'Search for work', :size=>23 %><br>
+35:    		Category: <%= select_tag "category", 
+36: 				"<option>All</option><option>%s</option>"%Listing::CATEGORIES.join('</option><option>') %><br>
+37:    		Within a <%= text_field("radius", "radius", :value=>"x", :size=>2, :disabled=>true) %> mile radius.<br>
+38:    		Number of Results: <%= select_tag "numResults", "<option>50</option><option>100</option><option>200</option><option>400</option><option>All</option>",  :disabled=>true %><br>
+39:    		<%= submit_tag "Search" %> 
+
+    app/views/layouts/general.html.erb:36
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (400.0ms)
+Rendered rescues/_request_and_response (7.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 03:01:24) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 194ms (View: 182, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-07 03:01:32) [GET]
+WARNING: Can't mass-assign these protected attributes: employer_rating, worker_rating, num_eratings, num_wratings
+Rendering template within layouts/general
+Rendering users/new
+Completed in 470ms (View: 283, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-07 03:01:48) [POST]
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"bxP4+s7VqRzDAyyfDnbyIW0/4UEzKvd+5bVj/i90Rew=", "user"=>{"zipcode"=>"94704", "password_confirmation"=>"password", "description"=>"I am awesome.", "password"=>"password", "login"=>"wesley", "email"=>"wesleylulee@gmail.com"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'wesley') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'wesleylulee@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (8.0ms)[0m   [0mINSERT INTO "users" ("salt", "created_at", "employer_rating", "num_eratings", "worker_rating", "crypted_password", "remember_token_expires_at", "num_wratings", "updated_at", "zipcode", "remember_token", "description", "login", "email") VALUES('adf51f9a05fa5749d951770692be490ed02742d4', '2010-12-07 11:01:49', 0.0, 0, 0.0, '6ec4469f600bdc02c1cce8ea9c4abd178531492c', NULL, 0, '2010-12-07 11:01:49', 94704, NULL, 'I am awesome.', 'wesley', 'wesleylulee@gmail.com')[0m
+Redirected to http://localhost:3000/
+Completed in 324ms (DB: 10) | 302 Found [http://localhost/users]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 03:01:49) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Completed in 312ms (View: 302, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-12-07 03:01:58) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Rendering template within layouts/general
+Rendering listings/new
+Completed in 444ms (View: 182, DB: 2) | 200 OK [http://localhost/listings/new]
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-12-07 03:05:16) [GET]
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Rendering template within layouts/general
+Rendering listings/new
+Completed in 467ms (View: 199, DB: 2) | 200 OK [http://localhost/listings/new]
+
+
+Processing ListingsController#create (for 127.0.0.1 at 2010-12-07 03:06:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"bxP4+s7VqRzDAyyfDnbyIW0/4UEzKvd+5bVj/i90Rew=", "listing"=>{"address"=>"2467 Warring St. Apt. 305, Berkeley, CA 94704", "category"=>"Baby-Sitting", "title"=>"Mold Cleanup", "approx_payment"=>"50", "description"=>"I have a bunch of mold in my apartment that needs to be cleaned up."}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Google geocoding. Address: 2467 Warring St. Apt. 305, Berkeley, CA 94704. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>2467 Warring St. Apt. 305, Berkeley, CA 94704</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>2467 Warring St #305, Berkeley, CA 94704, USA</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Alameda</SubAdministrativeAreaName><Locality><LocalityName>Berkeley</LocalityName><Thoroughfare><ThoroughfareName>2467 Warring St #305</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>94704</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="37.8692946" south="37.8629994" east="-122.2472834" west="-122.2535786" />
+    </ExtendedData>
+    <Point><coordinates>-122.2504310,37.8661470,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;36;1mListing Create (22.0ms)[0m   [0;1mINSERT INTO "listings" ("address", "category", "created_at", "worker_rating", "employer_rating", "title", "updated_at", "approx_payment", "lng", "user_id", "description", "lat", "active") VALUES('2467 Warring St. Apt. 305, Berkeley, CA 94704', 'Baby-Sitting', '2010-12-07 11:07:00', NULL, NULL, 'Mold Cleanup', '2010-12-07 11:07:00', 50.0, -122.250431, 8, 'I have a bunch of mold in my apartment that needs to be cleaned up.', 37.866147, 't')[0m
+Redirected to http://localhost:3000/listings/6
+Completed in 4814ms (DB: 24) | 302 Found [http://localhost/listings]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 03:07:05) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mListing Load (5.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 6) [0m
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mOffer Load (1.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE ("offers"."listing_id" = 6) [0m
+Rendering template within layouts/general
+Rendering listings/show
+
+ActionView::TemplateError (undefined method `zipcode' for #<Listing:0xd9a0cd0>) on line #19 of app/views/listings/show.html.erb:
+16: 
+17: <p>
+18:   <b>Zipcode: </b>
+19:   <%=h @listing.zipcode %> (This will soon show distance to your default location)
+20: </p>
+21: 
+22: <p>
+
+    app/views/listings/show.html.erb:19
+    app/controllers/listings_controller.rb:40:in `show'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (1331.1ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#create (for 127.0.0.1 at 2010-12-07 03:08:21) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"bxP4+s7VqRzDAyyfDnbyIW0/4UEzKvd+5bVj/i90Rew=", "listing"=>{"address"=>"2467 Warring St. Apt. 305, Berkeley, CA 94704", "category"=>"Baby-Sitting", "title"=>"Mold Cleanup", "approx_payment"=>"50", "description"=>"I have a bunch of mold in my apartment that needs to be cleaned up."}}
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Google geocoding. Address: 2467 Warring St. Apt. 305, Berkeley, CA 94704. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>2467 Warring St. Apt. 305, Berkeley, CA 94704</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>2467 Warring St #305, Berkeley, CA 94704, USA</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Alameda</SubAdministrativeAreaName><Locality><LocalityName>Berkeley</LocalityName><Thoroughfare><ThoroughfareName>2467 Warring St #305</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>94704</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="37.8692946" south="37.8629994" east="-122.2472834" west="-122.2535786" />
+    </ExtendedData>
+    <Point><coordinates>-122.2504310,37.8661470,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;36;1mListing Create (22.0ms)[0m   [0;1mINSERT INTO "listings" ("address", "category", "created_at", "worker_rating", "employer_rating", "title", "updated_at", "approx_payment", "lng", "user_id", "description", "lat", "active") VALUES('2467 Warring St. Apt. 305, Berkeley, CA 94704', 'Baby-Sitting', '2010-12-07 11:08:22', NULL, NULL, 'Mold Cleanup', '2010-12-07 11:08:22', 50.0, -122.250431, 8, 'I have a bunch of mold in my apartment that needs to be cleaned up.', 37.866147, 't')[0m
+Redirected to http://localhost:3000/listings/7
+Completed in 7922ms (DB: 25) | 302 Found [http://localhost/listings]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 03:08:32) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 7) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mOffer Load (1.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE ("offers"."listing_id" = 7) [0m
+Rendering template within layouts/general
+Rendering listings/show
+Completed in 2653ms (View: 807, DB: 7) | 200 OK [http://localhost/listings/7]
+
+
+Processing ListingsController#create (for 127.0.0.1 at 2010-12-07 03:09:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"bxP4+s7VqRzDAyyfDnbyIW0/4UEzKvd+5bVj/i90Rew=", "listing"=>{"address"=>"asdhgasdksdkljgajgk", "category"=>"Baby-Sitting", "title"=>"Mold Cleanup", "approx_payment"=>"50", "description"=>"I have a bunch of mold in my apartment that needs to be cleaned up."}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Google geocoding. Address: asdhgasdksdkljgajgk. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>asdhgasdksdkljgajgk</name>
+  <Status>
+    <code>602</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: asdhgasdksdkljgajgk
+Rendering template within layouts/general
+Rendering listings/new
+Completed in 909ms (View: 247, DB: 2) | 200 OK [http://localhost/listings]
+
+
+Processing ListingsController#create (for 127.0.0.1 at 2010-12-07 03:15:35) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"bxP4+s7VqRzDAyyfDnbyIW0/4UEzKvd+5bVj/i90Rew=", "listing"=>{"address"=>"asdhgasdksdkljgajgk", "category"=>"Baby-Sitting", "title"=>"Mold Cleanup", "approx_payment"=>"50", "description"=>"I have a bunch of mold in my apartment that needs to be cleaned up."}}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Google geocoding. Address: asdhgasdksdkljgajgk. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>asdhgasdksdkljgajgk</name>
+  <Status>
+    <code>602</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: asdhgasdksdkljgajgk
+Rendering template within layouts/general
+Rendering listings/new
+Completed in 742ms (View: 238, DB: 2) | 200 OK [http://localhost/listings]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-07 03:57:57) [GET]
+
+SyntaxError (C:/Users/Wesley/Documents/School/UC Berkeley/Fall 2010/CS 169 Software Engineering - Fox/testrepo/choresforce/app/controllers/listings_controller.rb:29: syntax error, unexpected ')', expecting '}'
+C:/Users/Wesley/Documents/School/UC Berkeley/Fall 2010/CS 169 Software Engineering - Fox/testrepo/choresforce/app/controllers/listings_controller.rb:182: syntax error, unexpected $end, expecting kEND):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (218.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-12-07 03:58:30) [GET]
+  [4;35;1mListing Load (6.0ms)[0m   [0mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+
+ActionView::TemplateError (undefined method `zipcode' for #<Listing:0xda8de50>) on line #18 of app/views/listings/index.html.erb:
+15:     <td><%=h link_to listing.user.login, listing.user %></td>
+16:     <td><%=h listing.title %></td>
+17:     <td><%=h listing.category %></td>
+18:     <td><%=h listing.zipcode %></td>
+19:     <td><%=h listing.description %></td>
+20:     <td><%=h listing.approx_payment %></td>
+21:     <td><%= link_to 'Show', listing %></td>
+
+    app/views/listings/index.html.erb:18
+    app/views/listings/index.html.erb:13:in `each'
+    app/views/listings/index.html.erb:13
+    app/controllers/listings_controller.rb:11:in `index'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (447.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 03:58:34) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Completed in 282ms (View: 267, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-12-07 03:58:41) [GET]
+  [4;36;1mListing Load (3.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+
+ActionView::TemplateError (undefined method `zipcode' for #<Listing:0xda31510>) on line #18 of app/views/listings/index.html.erb:
+15:     <td><%=h link_to listing.user.login, listing.user %></td>
+16:     <td><%=h listing.title %></td>
+17:     <td><%=h listing.category %></td>
+18:     <td><%=h listing.zipcode %></td>
+19:     <td><%=h listing.description %></td>
+20:     <td><%=h listing.approx_payment %></td>
+21:     <td><%= link_to 'Show', listing %></td>
+
+    app/views/listings/index.html.erb:18
+    app/views/listings/index.html.erb:13:in `each'
+    app/views/listings/index.html.erb:13
+    app/controllers/listings_controller.rb:11:in `index'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (291.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-12-07 03:59:25) [GET]
+  [4;36;1mListing Load (4.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) LIMIT 1[0m
+Completed in 389ms (View: 308, DB: 11) | 200 OK [http://localhost/listings]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-12-07 03:59:34) [GET]
+Redirected to http://localhost:3000/
+Completed in 137ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-12-07 04:00:06) [GET]
+Redirected to http://localhost:3000/
+Completed in 131ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 04:00:07) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 174ms (View: 146, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-12-07 04:00:21) [GET]
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 227ms (View: 208, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-12-07 04:00:30) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"Aw7XcUqa0HKFsBwTPaz/GLTz6gdYU9BLNKA4/KTwTb8=", "login"=>"tealc", "password"=>"password"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'tealc') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 159ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 04:00:31) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+Completed in 417ms (View: 406, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 04:00:43) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+Completed in 342ms (View: 329, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-12-07 04:00:48) [GET]
+  [4;36;1mListing Load (4.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+Completed in 361ms (View: 288, DB: 11) | 200 OK [http://localhost/listings]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-07 04:00:52) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mUser Load (5.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/general
+Rendering users/show
+Completed in 462ms (View: 139, DB: 6) | 200 OK [http://localhost/users/3]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:00:56) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (2.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (2.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;35;1mMessage Load (3.0ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 531ms (View: 159, DB: 13) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:00:58) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (255.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:01:49) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (2.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (2.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;35;1mMessage Load (2.0ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 476ms (View: 149, DB: 12) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:01:52) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (260.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:01:53) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (244.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:04:26) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mListing Load (16.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mOffer Load (2.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;36;1mMessage Load (1.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 733ms (View: 179, DB: 25) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:04:29) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (268.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:04:30) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (339.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:05:01) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (2.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;35;1mMessage Load (3.0ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (6.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 617ms (View: 164, DB: 16) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:05:04) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (238.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:05:05) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (2.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (206.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:06:45) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mOffer Load (1.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;36;1mMessage Load (2.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 530ms (View: 159, DB: 9) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:06:48) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (2.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (233.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:06:49) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (239.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#edit (for 127.0.0.1 at 2010-12-07 04:07:14) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Redirected to http://localhost:3000/listings/3
+Completed in 211ms (DB: 6) | 302 Found [http://localhost/listings/3/edit]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:07:15) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mListing Load (3.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mOffer Load (2.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;36;1mMessage Load (11.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 500ms (View: 111, DB: 20) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:07:16) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (355.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-12-07 04:07:19) [GET]
+Redirected to http://localhost:3000/
+Completed in 119ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 04:07:20) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 128ms (View: 120, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-12-07 04:07:23) [GET]
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 157ms (View: 137, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-12-07 04:07:30) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"ra45s6tW0HH1sYJKXcM7mZrN5iAWCuaTiE4thzD5LNw=", "login"=>"test_employer", "password"=>"password"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'test_employer') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 171ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 04:07:30) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 260ms (View: 249, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-12-07 04:07:38) [GET]
+  [4;36;1mListing Load (5.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 597ms (View: 524, DB: 12) | 200 OK [http://localhost/listings]
+
+
+Processing ListingsController#edit (for 127.0.0.1 at 2010-12-07 04:07:40) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/general
+Rendering listings/edit
+
+ActionView::TemplateError (undefined method `zipcode' for #<Listing:0xdb2ddc8>) on line #20 of app/views/listings/edit.html.erb:
+17:   </p>
+18:   <p>
+19:     <%= f.label :zipcode %><br />
+20:     <%= f.text_field :zipcode %>
+21:   </p>
+22:   <p>
+23:     <%= f.label :description %><br />
+
+    app/views/listings/edit.html.erb:20
+    app/views/listings/edit.html.erb:3
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (287.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#edit (for 127.0.0.1 at 2010-12-07 04:08:10) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/general
+Rendering listings/edit
+Completed in 490ms (View: 132, DB: 3) | 200 OK [http://localhost/listings/3/edit]
+
+
+Processing ListingsController#update (for 127.0.0.1 at 2010-12-07 04:10:04) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ra45s6tW0HH1sYJKXcM7mZrN5iAWCuaTiE4thzD5LNw=", "id"=>"3", "listing"=>{"address"=>"2467 Warring St. Apt. 305, Berkeley, CA 94704", "category"=>"Gardening", "title"=>"Lawn Mowing", "approx_payment"=>"25", "user_id"=>"3", "description"=>"I need someone to mow my lawn and nuke the flower beds."}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mListing Load (3.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+Rendering template within layouts/general
+Rendering listings/edit
+Completed in 369ms (View: 141, DB: 5) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#update (for 127.0.0.1 at 2010-12-07 04:10:11) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ra45s6tW0HH1sYJKXcM7mZrN5iAWCuaTiE4thzD5LNw=", "id"=>"3", "listing"=>{"address"=>"2467 Warring St. Apt. 305, Berkeley, CA 94704", "category"=>"Gardening", "title"=>"Lawn Mowing", "approx_payment"=>"25", "user_id"=>"3", "description"=>"I need someone to mow my lawn and nuke the flower beds."}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+
+NoMethodError (private method `gsub' called for nil:NilClass):
+  geokit (1.5.0) lib/geokit/geocoders.rb:39:in `url_escape'
+  geokit (1.5.0) lib/geokit/geocoders.rb:432:in `do_geocode'
+  geokit (1.5.0) lib/geokit/geocoders.rb:126:in `geocode'
+  app/controllers/listings_controller.rb:160:in `update'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (390.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#update (for 127.0.0.1 at 2010-12-07 04:12:37) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ra45s6tW0HH1sYJKXcM7mZrN5iAWCuaTiE4thzD5LNw=", "id"=>"3", "listing"=>{"address"=>"2467 Warring St. Apt. 305, Berkeley, CA 94704", "category"=>"Gardening", "title"=>"Lawn Mowing", "approx_payment"=>"25", "user_id"=>"3", "description"=>"I need someone to mow my lawn and nuke the flower beds."}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+
+NoMethodError (private method `gsub' called for nil:NilClass):
+  geokit (1.5.0) lib/geokit/geocoders.rb:39:in `url_escape'
+  geokit (1.5.0) lib/geokit/geocoders.rb:432:in `do_geocode'
+  geokit (1.5.0) lib/geokit/geocoders.rb:126:in `geocode'
+  app/controllers/listings_controller.rb:160:in `update'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (211.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#update (for 127.0.0.1 at 2010-12-07 04:13:42) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ra45s6tW0HH1sYJKXcM7mZrN5iAWCuaTiE4thzD5LNw=", "id"=>"3", "listing"=>{"address"=>"2467 Warring St. Apt. 305 Berkeley CA 94704", "category"=>"Gardening", "title"=>"Lawn Mowing", "approx_payment"=>"25", "user_id"=>"3", "description"=>"I need someone to mow my lawn and nuke the flower beds."}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+
+NoMethodError (private method `gsub' called for nil:NilClass):
+  geokit (1.5.0) lib/geokit/geocoders.rb:39:in `url_escape'
+  geokit (1.5.0) lib/geokit/geocoders.rb:432:in `do_geocode'
+  geokit (1.5.0) lib/geokit/geocoders.rb:126:in `geocode'
+  app/controllers/listings_controller.rb:160:in `update'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (442.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#update (for 127.0.0.1 at 2010-12-07 04:14:57) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ra45s6tW0HH1sYJKXcM7mZrN5iAWCuaTiE4thzD5LNw=", "id"=>"3", "listing"=>{"address"=>"2467 Warring St. Apt. 305 Berkeley CA 94704", "category"=>"Gardening", "title"=>"Lawn Mowing", "approx_payment"=>"25", "user_id"=>"3", "description"=>"I need someone to mow my lawn and nuke the flower beds."}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+
+NoMethodError (private method `gsub' called for nil:NilClass):
+  geokit (1.5.0) lib/geokit/geocoders.rb:39:in `url_escape'
+  geokit (1.5.0) lib/geokit/geocoders.rb:432:in `do_geocode'
+  geokit (1.5.0) lib/geokit/geocoders.rb:126:in `geocode'
+  app/controllers/listings_controller.rb:160:in `update'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (244.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListingsController#update (for 127.0.0.1 at 2010-12-07 04:16:23) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ra45s6tW0HH1sYJKXcM7mZrN5iAWCuaTiE4thzD5LNw=", "id"=>"3", "listing"=>{"address"=>"2467 Warring St. Apt. 305 Berkeley CA 94704", "category"=>"Gardening", "title"=>"Lawn Mowing", "approx_payment"=>"25", "user_id"=>"3", "description"=>"I need someone to mow my lawn and nuke the flower beds."}}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+Google geocoding. Address: 2467 Warring St. Apt. 305 Berkeley CA 94704. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>2467 Warring St. Apt. 305 Berkeley CA 94704</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>2467 Warring St #305, Berkeley, CA 94704, USA</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Alameda</SubAdministrativeAreaName><Locality><LocalityName>Berkeley</LocalityName><Thoroughfare><ThoroughfareName>2467 Warring St #305</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>94704</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="37.8692946" south="37.8629994" east="-122.2472834" west="-122.2535786" />
+    </ExtendedData>
+    <Point><coordinates>-122.2504310,37.8661470,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mListing Update (5.0ms)[0m   [0;1mUPDATE "listings" SET "updated_at" = '2010-12-07 12:16:25', "lng" = -122.250431, "lat" = 37.866147, "address" = '2467 Warring St. Apt. 305 Berkeley CA 94704' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/listings/3
+Completed in 3136ms (DB: 9) | 302 Found [http://localhost/listings/3]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:16:28) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (2.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE ("offers"."listing_id" = 3) [0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mMessage Load (2.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (3,6) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,6)) ORDER BY created_at[0m
+  [4;35;1mUser Load (10.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mMessage Load (3.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (3,7) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 762ms (View: 265, DB: 24) | 200 OK [http://localhost/listings/3]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-12-07 04:16:40) [GET]
+Redirected to http://localhost:3000/
+Completed in 138ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 04:16:41) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 195ms (View: 174, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-12-07 04:16:43) [GET]
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 174ms (View: 162, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-12-07 04:16:51) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"WPjqARUt10/5T5GvMHMbueg5gAWYK/b64aAwT1PDjOo=", "login"=>"tealc", "password"=>"password"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'tealc') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 483ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-07 04:16:52) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+  [4;35;1mUser Load (13.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+Completed in 442ms (View: 410, DB: 13) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-12-07 04:17:02) [GET]
+  [4;36;1mListing Load (4.0ms)[0m   [0;1mSELECT * FROM "listings" [0m
+Rendering template within layouts/general
+Rendering listings/index
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+Completed in 512ms (View: 438, DB: 11) | 200 OK [http://localhost/listings]
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:17:06) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (3.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (2.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;35;1mMessage Load (3.0ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 413ms (View: 111, DB: 15) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:17:08) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (260.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:17:18) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (2.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;35;1mMessage Load (3.0ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 658ms (View: 107, DB: 11) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:17:21) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (242.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:17:21) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (348.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:17:36) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mOffer Load (1.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;36;1mMessage Load (2.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 390ms (View: 89, DB: 11) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:17:38) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (409.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:17:40) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (3.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (256.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:18:06) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (2.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;35;1mMessage Load (2.0ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 555ms (View: 183, DB: 12) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:18:09) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (233.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:18:10) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (2.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (424.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:19:25) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mOffer Load (1.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;36;1mMessage Load (1.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 521ms (View: 176, DB: 10) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:19:28) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (469.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:19:29) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (306.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:21:51) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (2.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (1.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;35;1mMessage Load (1.0ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 497ms (View: 163, DB: 8) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:21:54) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (357.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:21:55) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (250.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:23:42) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mListing Load (2.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mOffer Load (2.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;36;1mMessage Load (2.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 435ms (View: 139, DB: 12) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:23:44) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (294.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:23:46) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (244.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:24:48) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mListing Load (3.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mOffer Load (1.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;35;1mMessage Load (3.0ms)[0m   [0mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 715ms (View: 221, DB: 14) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:24:51) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (376.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:24:52) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (212.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show (for 127.0.0.1 at 2010-12-07 04:27:32) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mListing Load (3.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mOffer Load (1.0ms)[0m   [0mSELECT * FROM "offers" WHERE (user_id = 7 and listing_id = 3) LIMIT 1[0m
+  [4;36;1mMessage Load (2.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."from" IN (7,3) AND "messages"."listing_id" = 3 AND "messages"."to" IN (3,7)) ORDER BY created_at[0m
+Rendering template within layouts/general
+Rendering listings/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 597ms (View: 143, DB: 11) | 200 OK [http://localhost/listings/3]
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:27:35) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (276.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ListingsController#show to gif (for 127.0.0.1 at 2010-12-07 04:27:36) [GET]
+  Parameters: {"id"=>"stars"}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Listing with ID=stars):
+  app/controllers/listings_controller.rb:20:in `show'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (251.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
