@@ -12,15 +12,15 @@
 </p>
 
 <p>
-  <b>Zipcode:</b> <%=h @user.zipcode %>
+  <b>Address:</b> <%=h @user.address %>
 </p>
 
 <p>
-  <b>Rating as Employer:</b> <%=h @user.employer_rating %> (<%=h @user.num_eratings %> ratings)
+  <b>Rating as Employer:</b> <div class="rating_bar"> <div style="width:<%=h @user.employer_rating*20 %>%"></div></div> (<%=h @user.num_eratings %> ratings)
 </p>
 
 <p>
-  <b>Rating as Worker:</b> <%=h @user.worker_rating %> (<%=h @user.num_wratings %> ratings)
+  <b>Rating as Worker:</b> <div class="rating_bar"> <div style="width:<%=h @user.worker_rating*20 %>%"></div></div> (<%=h @user.num_wratings %> ratings)
 </p>
 
 <p>

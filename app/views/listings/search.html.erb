@@ -1,5 +1,39 @@
 <h1>Search Results</h1>
 
+<table class = 'listings'>
+<% if @results!=nil %>
+  <tr>
+  <div class = 'listing'>
+    <div class = 'listing_title'><b>Title</b></div>
+    <div class = 'listing_category'><b>Category</b></div>
+    <div class = 'listing_distance'><b>Distance</b></div>
+  </div>
+  </tr>
+	<% @results.each do |listing| %>
+
+  	
+	<tr>
+		<div class = 'listing'>
+		<a class = 'listinglink' href='/listings/<%=h listing.id %>'>
+				<div class = 'listing_title'><b><%=h listing["title"] %></b><span style='color:#999999; padding-left: 5px;'><%=h listing["description"] %></span> </div>
+				<div class = 'listing_category'><%=h listing["category"] %></div>
+				<div class = 'listing_distance'>1.1</div>
+		</a>
+		</div>
+	</tr>
+	
+	<% end %>
+<% end %>
+</table>
+
+
+<br />
+
+
+
+<!-----
+<h1>Search Results</h1>
+
 <table>
 <% if @results!=nil %>
   <tr>
@@ -9,7 +43,7 @@
     <th>Description</th>
     <th>Approx payment</th>
     <th>Zipcode</th>
-  </tr>
+  </tr>#919191
 	<% @results.each do |listing| %>
 	
   	<tr>
@@ -20,6 +54,9 @@
     	<td><%=h listing["approx_payment"] %></td>
     	<td><%=h listing["zipcode"] %>, <%=h link_to 'Show', listing %></td>
   	</tr>
+	
+
+
 	<% end %>
 <% end %>
 </table>
@@ -27,3 +64,4 @@
 <br />
 
 <%= link_to 'New listing', new_listing_path %>
+------>

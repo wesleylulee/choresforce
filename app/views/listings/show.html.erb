@@ -12,13 +12,17 @@
 <p>
   <b>Category:</b>
   <%=h @listing.category %>
-</p>
-
+</p><% if (current_user and current_user.id==@listing.user.id) or (current_user and @past_offer!=nil and @past_offer.accepted==true) %>
 <p>
   <b>Address: </b>
   <%=h @listing.address %>
 </p>
-
+<% else %>
+<p>
+  <b>Distance from you: </b>
+  <%=h "%.2f" % @distance %> miles
+</p>
+<% end %>
 <p>
   <b>Description:</b>
   <%=h @listing.description %>
@@ -36,25 +40,29 @@
 <% if current_user and current_user.id!=@listing.user.id %>
 <!--- Logged on User is not the Listing Owner --->
 	<% if @past_offer != nil %>
-		<% form_for(@past_offer, :html=>{:class=>'service_offer'}) do |f| %>
-		<%= f.error_messages %>
+		<div class='service_offer'>
 		<% if @listing.active==false and @past_offer.accepted==true %>
-			<span class='past_offer'> Your offer to work for $<%=h @past_offer.amount %> has been accepted. Contact the employer below for further details.<br>
-			<%= form_tag :controller => 'listings', :action => 'add_erating', :id=>'add_erating' %>asdf
-			<script>
-				new Starry('add_erating', {name:"rating"});
-			</script>
-			</form></span>
+			<span class='past_offer'> Your offer to work for $<%=h @past_offer.amount %> has been accepted. Contact the employer below for further details.<p>
+			<%= form_tag :controller=>'listings', :action=>'add_erating' %>
+				Rate your experience with <%=h link_to @listing.user.login, @listing.user %> as an employer: <br><script>
+				new Starry('add_erating', {name:"rating", startAt:<%= @listing.employer_rating or 3 %>}); </script>
+				<%= hidden_field_tag 'listing_id', @listing.id %>
+				<span style='position:relative; top:0;'><%= submit_tag "Submit Rating" %></span>
+			</form>
+			</span>
 		<% elsif @listing.active==false and @past_offer.accepted==false %>
 			<span class='past_offer'> Sorry, your offer to work for $<%=h @past_offer.amount %> has not been accepted. However, you might get a second chance. </span>
 		<% else %>
-			<span class='past_offer, past_offer_active'> You have made an offer to work for $<%=h @past_offer.amount %> </span>
-			Change this amount? $ <%= f.text_field :amount, :size=>3 %>
-			<%= f.hidden_field :user_id, :value=>current_user.id %>
-			<%= f.hidden_field :listing_id, :value=>@listing.id %>
-			<%= f.submit 'Change' %>
+			<% form_for(@past_offer) do |f| %>
+				<%= f.error_messages %>
+				<span class='past_offer, past_offer_active'> You have made an offer to work for $<%=h @past_offer.amount %> </span>
+				Change this amount? $ <%= f.text_field :amount, :size=>3 %>
+				<%= f.hidden_field :user_id, :value=>current_user.id %>
+				<%= f.hidden_field :listing_id, :value=>@listing.id %>
+				<%= f.submit 'Change' %>
+			<% end %>
 		<% end %>
-		<% end %>
+		</div>
 	<% else %>
 		<% form_for(@offer, :html=>{:class=>'service_offer'}) do |f| %>
 		<%= f.error_messages %>
@@ -86,26 +94,27 @@
 	<% end %>
 	<% end %>
 	
-	<% if @listing.active==false and current_user and @past_offer != nil and @past_offer.accepted == true %>
-	
-	<img src="http://maps.google.com/maps/api/staticmap?center=<%=h @place[:lat] %>,<%=h @place[:lng] %>&zoom=12&size=400x400&sensor=false">
-	
-	
-	
-	
+	<% if @listing.active==false and @past_offer != nil and @past_offer.accepted == true %>
+	<p><center>
+	<img src="http://maps.google.com/maps/api/staticmap?center=<%=h @place[:lat] %>,<%=h @place[:lng] %>&zoom=14&size=600x400&sensor=false&markers=color:red|label:W|<%=h @place[:lat] %>,<%=h @place[:lng] %>">
+	</center>
 	<% end %>
 	
 	
 <% elsif current_user and current_user.id==@listing.user.id%>
 <!--- Logged on User is the Listing Owner 
       Show each User offering to work, their ratings, and offer, and messaging between you and user ---><br>
-	
+	<% if @offers.empty? %>
+	<span style="font-weight:bold; color:#4A777A; padding:5px;">No offers have been made to work yet</span><p>
+	<% else %>	
 	<span style="font-weight:bold; color:#4A777A; padding:5px;">The following users have offered to work:</span>
+	<% end %>
 	<% @offers.each do |offer| %>
 	<div class='service_offer'>
 		<%=h link_to offer.user.login, offer.user %>
 		<div class="rating_bar"> <div style="width:<%=h offer.user.worker_rating*20 %>%"></div></div>
 		Payment: $<%=h offer.amount %>
+		
 		<div class='offer_nav'> 
 		<%= link_to_function "Hide/Show Messaging", "$('messaging_for_offer#{offer.id}').toggle()" %>
 		<% if @listing.active==true %>
@@ -119,9 +128,17 @@
 		<% elsif @listing.active==false and offer.accepted==false %>
 			| <span style='display:inline-block;'>
 			<%= button_to "Accept Offer", {:action => "rescindOffer", :listing_id => @listing.id, :offer_id => offer.id }, :confirm => "Are you sure?", :method => :rescindOffer, :disabled => true, :class=>'offerButton' %> </span>		
+		<% end %><br>
+		</div>			
+		<% if @listing.active==false and offer.accepted==true %>
+			<%= form_tag :controller=>'listings', :action=>'add_wrating' %>
+				<script> new Starry('add_wrating', {name:"rating", startAt:<%= @listing.worker_rating or 3 %>}); </script>
+				<%= hidden_field_tag 'listing_id', @listing.id %>
+				<%= hidden_field_tag 'worker_id', offer.user.id %>
+				<span style='position:absolute; bottom: 11%; left: 27%;'><%= submit_tag "Rate this Worker" %></span>
+			</form>
 		<% end %>
-		</div>	
-		
+
 	</div>
 	<!--- Messages --->
 	<span id='messaging_for_offer<%=h offer.id %>' style="display:none;">

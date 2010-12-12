@@ -6,9 +6,9 @@
 var debug = false;
 
 var StarryDefaults = {
-		sprite: "stars.gif",
-		width: 30,
-		height: 30,
+		sprite: "/images/stars.gif",
+		width: 25,
+		height: 25,
 		startAt: 0,
 		maxLength: 5,
 		multiplier: 1,

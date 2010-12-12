@@ -112,10 +112,12 @@ body, p, ol, ul, td {
 	padding: 7px;
 	margin: 5px;
 	border: 1px solid #4A777A;
+	position:relative;
 }
 .past_offer {
 	color: #4A777A;
 	font-style:italic;
+	position:relative;
 }
 .past_offer_active {
 	border-right: 1px solid #000;
@@ -124,7 +126,10 @@ body, p, ol, ul, td {
 }
 .offer_nav {
 	float:right;
-	vertical-align:middle;
+	position:absolute;
+	top:10%;
+	right:0;
+	
 }
 .rating_bar {
   display: inline-block;
@@ -214,3 +219,65 @@ a:hover { color: #fff; background-color:#000; }
   font-size: 12px;
   list-style: square;
 }
+
+/* Dennis' CSS */
+
+.listings{
+	width: 100%;
+	border-collapse: collapse;
+	table-layout:fixed;
+
+}
+
+a:link.listinglink { text-decoration: none; color: #525252}
+a:visited.listinglink{ text-decoration: none; color: #525252}
+a:hover.listinglink { text-decoration: none; color: #525252}
+
+
+.listing{
+	position:relative;
+	padding: 2px;
+	float:center;
+	width: 600px;
+	height:30px;
+	border-bottom: #CCCCCC 1px dotted;
+}
+
+.listing:hover{
+	position:relative;
+	padding: 2px;
+	float:center;
+	width: 600px;
+	height:30px;
+	background-color: #E4EBE4;
+	border-bottom: #CCCCCC 1px dotted;
+}
+
+.listing_title{
+	
+	position:relative;
+	float:left;
+	width: 445px;
+	height:22px;
+	overflow:hidden;
+}
+
+.listing_category{
+	text-align: center;
+	
+	position:relative;
+	float:left;
+	width: 100px;
+	height:22px;
+	overflow:hidden;
+}
+
+.listing_distance{
+	text-align: center;
+	position:relative;
+	float:left;
+	width:55px;
+	height:22px;
+	overflow:hidden;
+}
+

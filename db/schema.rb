@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101207103228) do
+ActiveRecord::Schema.define(:version => 20101211001331) do
 
   create_table "listings", :force => true do |t|
     t.integer  "user_id"
@@ -55,12 +55,14 @@ ActiveRecord::Schema.define(:version => 20101207103228) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
-    t.integer  "zipcode"
     t.decimal  "employer_rating"
     t.integer  "num_eratings"
     t.decimal  "worker_rating"
     t.integer  "num_wratings"
     t.text     "description"
+    t.string   "address"
+    t.decimal  "lat"
+    t.decimal  "lng"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

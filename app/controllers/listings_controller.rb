@@ -1,4 +1,4 @@
-include Geokit::Geocoders
+include Geokit
 
 class ListingsController < ApplicationController
   layout 'general'
@@ -21,7 +21,10 @@ class ListingsController < ApplicationController
     if @listing.active==false
 	flash.now[:warning] = 'This listing is now inactive. Unless the employer choses to use another worker, it will not be activated again.'
     end
-    if current_user and current_user.id!=@listing.user.id
+    if current_user
+    user = current_user
+    @distance = LatLng.new(user.lat,user.lng).distance_to(LatLng.new(@listing.lat,@listing.lng))
+    if current_user.id!=@listing.user.id
 	@offer = Offer.new
 	@past_offer = Offer.find(:first, :conditions=>['user_id = ? and listing_id = ?', current_user.id, @listing.id])
 	if @past_offer!=nil and @past_offer.accepted==true
@@ -30,13 +33,14 @@ class ListingsController < ApplicationController
 	end
 	@new_message = Message.new
 	@messages = Message.find(:all, :conditions=>{:from=>[current_user.id, @listing.user.id], :to=>[@listing.user.id, current_user.id], :listing_id=>@listing.id}, :order=>"created_at")
-    elsif current_user and current_user.id==@listing.user.id
+    elsif current_user.id==@listing.user.id
 	@offers = Offer.find(:all, :conditions=>{:listing_id => @listing.id})
 	@new_message = Message.new
 	@messageblocks = {}
 	@offers.each do |offer|
 		@messageblocks[offer.id] = Message.find(:all, :conditions=>{:from=>[current_user.id, offer.user.id ], :to=>[current_user.id, offer.user.id], :listing_id=>@listing.id}, :order=>"created_at")
 	end
+    end
     end
     respond_to do |format|
       format.html # show.html.erb
@@ -95,14 +99,48 @@ class ListingsController < ApplicationController
       render 'search', :locals => {:results => @results}
   end
 
+  def add_erating
+	params["rating"] = params["rating"] or 0
+	@listing = Listing.find(params['listing_id'])
+	employer = @listing.user
+	if @listing.employer_rating!=nil
+		employer.employer_rating = ((employer.employer_rating*employer.num_eratings)-@listing.employer_rating)/(employer.num_eratings-1)
+		employer.num_eratings = (employer.num_eratings-1)
+		if employer.num_eratings==0; employer.employer_rating=0; end
+	end
+	@listing.employer_rating = params["rating"]
+	if @listing.save
+		employer.employer_rating = ((employer.employer_rating*employer.num_eratings)+@listing.employer_rating)/(employer.num_eratings+1)
+		employer.num_eratings = (employer.num_eratings+1)
+		employer.save
+	end
+	redirect_to @listing
+  end
+  def add_wrating
+	params["rating"] = params["rating"] or 0
+	@listing = Listing.find(params['listing_id'])
+	worker = User.find(params['worker_id'])
+	if @listing.worker_rating!=nil
+		worker.worker_rating = ((worker.worker_rating*worker.num_wratings)-@listing.worker_rating)/(worker.num_wratings-1)
+		worker.num_wratings = (worker.num_wratings-1)
+		if worker.num_wratings==0; worker.worker_rating=0; end
+	end
+	@listing.worker_rating = params["rating"]
+	if @listing.save
+		worker.worker_rating = ((worker.worker_rating*worker.num_wratings)+@listing.worker_rating)/(worker.num_wratings+1)
+		worker.num_wratings = (worker.num_wratings+1)
+		worker.save
+	end
+	redirect_to @listing
+  end
   # POST /listings
   # POST /listings.xml
   def create
     @listing = Listing.new(params[:listing])
     @listing.user_id = current_user.id
-	geocode = GoogleGeocoder.geocode(@listing.address)
-	@listing.lat = geocode.lat
-	@listing.lng = geocode.lng
+    geocode = GoogleGeocoder.geocode(@listing.address)
+    @listing.lat = geocode.lat
+    @listing.lng = geocode.lng
 
     respond_to do |format|
       if @listing.save
@@ -148,10 +186,6 @@ class ListingsController < ApplicationController
 	redirect_to(@listing, :notice => 'Your listing has now been reactivated. You can choose from one of the other offers, or wait for new offers.')
   end
 
-  def add_erating
-	flash.new[:warning] = "The rating was " + params["rating"].to_s
-	redirect_to root_path
-  end
   # PUT /listings/1
   # PUT /listings/1.xml
   def update
