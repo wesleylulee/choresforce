@@ -1,4 +1,4 @@
-include Geokit::Geocoders
+include Geokit
 class UsersController < ApplicationController
   layout 'general' 
   # Be sure to include AuthenticationSystem in Application Controller instead
@@ -14,9 +14,10 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
-    geocode = GoogleGeocoder.geocode(@user.address)
+    geocode = GoogleGeocoder.geocode(params[:user][:address])
     @user.lat = geocode.lat
     @user.lng = geocode.lng
+    @user.address = params[:user][:address]
 
     success = @user && @user.save
 

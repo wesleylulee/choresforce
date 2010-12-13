@@ -13,7 +13,10 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.xml
   def show
-    @message = Message.find(params[:id])
+    @message = Message.find(params[:id])	
+	#notification flag
+	@message.unread = false
+	@message.save
 
     respond_to do |format|
       format.html # show.html.erb

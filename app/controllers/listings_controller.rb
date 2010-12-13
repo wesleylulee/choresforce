@@ -1,4 +1,5 @@
 include Geokit
+include Geokit::Geocoders
 
 class ListingsController < ApplicationController
   layout 'general'
@@ -23,10 +24,24 @@ class ListingsController < ApplicationController
     end
     if current_user
     user = current_user
+    # Notification
+    @messagesToThisListing = Message.find(:all, :conditions=>{:to => current_user.id, :listing_id => @listing.id})	
+    @messagesToThisListing.each do |msgt|
+	msgt.unread = false
+	msgt.save
+    end
+    # End Add
+
     @distance = LatLng.new(user.lat,user.lng).distance_to(LatLng.new(@listing.lat,@listing.lng))
     if current_user.id!=@listing.user.id
 	@offer = Offer.new
 	@past_offer = Offer.find(:first, :conditions=>['user_id = ? and listing_id = ?', current_user.id, @listing.id])
+	# Notification Add
+	if @past_offer != nil
+		@past_offer.listingChanged = false
+		@past_offer.save
+	end
+	# End Add
 	if @past_offer!=nil and @past_offer.accepted==true
 		flash.now[:notice] = 'Congratulations! Your offer to work for $' + @past_offer.amount.to_s + ' has been accepted. Check your messages below to recieve further information from the employer'
 		@place = {:lat=>@listing.lat, :lng=>@listing.lng}
@@ -34,6 +49,12 @@ class ListingsController < ApplicationController
 	@new_message = Message.new
 	@messages = Message.find(:all, :conditions=>{:from=>[current_user.id, @listing.user.id], :to=>[@listing.user.id, current_user.id], :listing_id=>@listing.id}, :order=>"created_at")
     elsif current_user.id==@listing.user.id
+	# Notification Add
+	@listing.newOffer = false
+	@listing.save
+	
+	# End Add
+
 	@offers = Offer.find(:all, :conditions=>{:listing_id => @listing.id})
 	@new_message = Message.new
 	@messageblocks = {}
@@ -70,7 +91,7 @@ class ListingsController < ApplicationController
 
   def search  #search results
     @results = params[:results] 
-    puts @results.to_s     
+    #puts @results.to_s     
       #if session[:id]!=nil
 	 #flash[:warning] = 'You are already logged in as <a href = "%s/%s">%s</a>. Log-in as a different user?' % [users_url, session[:id], session[:username]]
       #end
@@ -79,24 +100,35 @@ class ListingsController < ApplicationController
 
   def process_search
       @results = nil
-      if params[:category]=='All'
-	if params[:title]["title"].empty?
-	  @results = Listing.find(:all)
-	else
-	  @results = Listing.find_with_index(params[:title]["title"])
+      @dresults = []
+      if params[:cats].nil?; params[:cats] = ['All']; end
+      if params[:cats].include?('All')
+	if params[:title]["title"].empty?; @results = Listing.find(:all, :conditions=>{:active=>true})
+	else; @results = Listing.find_with_index(params[:title]["title"], {:conditions=>{:active=>true}})
         end
       else
-	if params[:title]["title"].empty?
-	  @results = Listing.find(:all, :conditions=>['category=?', params[:category]])
-        else
-	  @results = Listing.find_with_index(params[:title]["title"], {:conditions=>['category=?', params[:category]]})
+	if params[:title]["title"].empty?; @results = Listing.find(:all, :conditions=>{:category=>params[:cats], :active=>true})
+        else; @results = Listing.find_with_index(params[:title]["title"], {:conditions=>{:category=>params[:cats], :active=>true}})
         end
       end
-
-      if @results.length ==0
-	flash[:notice] = "Sorry, your search didn't render any results. Please try again."
+      if current_user; @user = current_user
+      else; geoc = IpGeocoder.geocode(request.remote_ip); @user = User.new(:lat=>geoc.lat, :lng=>geoc.lng)
       end
-      render 'search', :locals => {:results => @results}
+      @results.each do |result|
+        @dresults.push({"listing"=>result, "distance"=>LatLng.new(@user.lat,@user.lng).distance_to(LatLng.new(result.lat,result.lng))})
+      end      
+      if !@user.lat.nil? && !@user.lng.nil?
+      	@dresults.sort! {|a,b| a["distance"]<=>b["distance"]}
+      	@dresults = @dresults.select {|result| result["distance"]<=params[:radius]["radius"].to_f}
+      end
+      if params[:numResults]["numResults"].to_i==0; params[:numResults]["numResults"]=50; end
+      @dresults = @dresults[0,params[:numResults]["numResults"].to_i]
+      if @results.length ==0
+	flash.now[:warning] = "Sorry, your search didn't render any results. Please try again."
+      elsif @user.lat.nil? or @user.lng.nil?
+	flash.now[:warning] = "Sorry, Since you are not logged in, and your IP-address was unresolved, the results below aren't necessarily close to your location."
+      end
+      render 'search', :locals => {:dresults => @dresults, :user => @user}
   end
 
   def add_erating
@@ -155,6 +187,13 @@ class ListingsController < ApplicationController
 
   def acceptOffer
 	@listing = Listing.find(params[:listing_id])
+	# Notification flag
+	@offers = Offer.find(:all, :conditions=>{:listing_id => @listing.id})
+	@offers.each do |offer|
+		offer.listingChanged = true
+		offer.save
+	end
+	# End Add
 	@offer = Offer.find(params[:offer_id])
 	@offer.accepted = true
 	if not @offer.save
@@ -174,6 +213,13 @@ class ListingsController < ApplicationController
 	@listing = Listing.find(params[:listing_id])
 	@offer = Offer.find(params[:offer_id])
 	@offer.accepted = false
+	# Notification flag
+	@offers = Offer.find(:all, :conditions=>{:listing_id => @listing.id})
+	@offers.each do |offer|
+		offer.listingChanged = true
+		offer.save
+	end
+	# End Add
 	if not @offer.save
 	  flash.now[:error] = 'Error: The offer could not be rescinded.'
 	  redirect_to(@listing)

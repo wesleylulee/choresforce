@@ -30,17 +30,30 @@
 
 	<div id="main_wrapper">
 		<div id="sidebar">
+		<SCRIPT LANGUAGE="JavaScript"><!--
+			function toggleCategories() {
+				boxes = document.getElementsByClassName('category');
+				for (i = 0; i < boxes.length; i++)
+					boxes[i].disabled = !boxes[i].disabled ;
+			}
+		//-->
+		</SCRIPT>
 		<%= form_tag :controller => 'listings', :action => 'process_search'%>
-   		<%= text_field "title", "title", :placeholder=>'Search for work', :size=>23 %><br>
-   		Category: <%= select_tag "category", 
-				"<option>All</option><option>%s</option>"%Listing::CATEGORIES.join('</option><option>') %><br>
-   		Within a <%= text_field("radius", "radius", :value=>"x", :size=>2, :disabled=>true) %> mile radius.<br>
-   		Number of Results: <%= select_tag "numResults", "<option>50</option><option>100</option><option>200</option><option>400</option><option>All</option>",  :disabled=>true %><br>
-   		<%= submit_tag "Search" %> 
+	   		<%= text_field "title", "title", :placeholder=>'Search for work', :size=>23 %><br>
+			<div style='padding:5px 0px;'>
+			<%= check_box_tag 'cats[]' , 'All', true, :class=>'allBox', :onclick =>"toggleCategories();" %><i>All Categories</i><br>
+			<% Listing::CATEGORIES.each do |cat| %>
+				<%= check_box_tag 'cats[]', cat, false, :class => 'category', :disabled=>true -%><%= cat %><br>
+			<% end %>
+			</div>
+	   		<%= text_field("radius", "radius", :value=>"5", :size=>2, :disabled=>false) %> mile radius <br>
+	   		<%= text_field("numResults","numResults", :value=>"50", :size=>2) %> Results 
+	   		<div style='float:right;'><%= submit_tag "Search" %></div>
 		</form>  
 		<hr>
 
 		<p><b> Quick Links </b><br>
+		<%= link_to 'Dashboard', root_url %><br>
 		<%= link_to "Post a Work Oppurtunity", new_listing_path %>
 		</p>
 		</div>

@@ -1,7 +1,82 @@
 <% if current_user %> 
 	<h1>Dashboard</h1>
-	<p>Hi, <%=h current_user.login %>.</p> 
+	<p>Hi, <%=h current_user.login %>.</p>
+    <%=h @where %>
+
+	<h3> Active Listings </h3>
+
+
+	<% if @biglist != nil %>
+	<% @biglist.each do |listing| %>
+		<a class = 'listinglink' href='/listings/<%=h listing.listing.id %>'>
+			<% if listing.color == 'green' %>
+				<div class = 'dashboard_listing_green'>
+					<b><%=h listing.listing["title"] %></b>
+					<%=h listing.msg %>
+					<div class = 'dashboard_listing_msg_count'>
+					<%=h listing.msgnum %> New Message(s)
+					</div>
+						
+				</div>
+			<% else %>
+				<div class = 'dashboard_listing'>
+					<b><%=h listing.listing["title"] %></b>
+					<%=h listing.msg %>
+					<div class = 'dashboard_listing_msg_count'>
+					<%=h listing.msgnum %> New Message(s)
+					</div>
+						
+				</div>
+			<% end %>
+		</a>
+	<% end %>
+	<% end %>
+
+
+
+	<h3> Inactive Listings</h3>
+
+	
+	<% if @biginactivelist != nil %>
+	<% @biginactivelist.each do |listing| %>
+		<a class = 'listinglink' href='/listings/<%=h listing.listing.id %>'>
+		
+			<% if listing.color == 'red' %>
+				<div class = 'dashboard_listing_red'>
+					<b><%=h listing.listing["title"] %></b>
+					<%=h listing.msg %>
+					<div class = 'dashboard_listing_msg_count'>
+					<%=h listing.msgnum %> New Message(s)
+					</div>
+						
+				</div>
+			<% elsif listing.color == 'green'%>
+				<div class = 'dashboard_listing_green'>
+					<b><%=h listing.listing["title"] %></b>
+					<%=h listing.msg %>
+					<div class = 'dashboard_listing_msg_count'>
+					<%=h listing.msgnum %> New Message(s)
+					</div>
+				</div>
+			<% else %>
+				<div class = 'dashboard_listing'>
+					<b><%=h listing.listing["title"] %></b>
+					<%=h listing.msg %>
+					<div class = 'dashboard_listing_msg_count'>
+					<%=h listing.msgnum %> New Message(s)
+					</div>
+						
+				</div>
+			<% end %>
+			
+		</a>
+	<% end %>
+	<% end %>
 <% else %> 
-	<h1>Welcome!</h1>
-	<p>Please <%= link_to "log in", login_path %> to use the system, or <%= link_to "sign up", signup_path %> for a new account.</p> 
+	<img src="../images/plbanner.png" width=100%>	<div id='welcome_head'>Welcome to ChoresForce!</div> 
+	<div style='margin-right:80px;'>
+	<%= link_to "Register", signup_path, :class=>'button' %><%= link_to "Login", login_path, :class=>'button' %>
+	</div>
+	<div id='about'>blah blah
+	</div>
 <% end %>

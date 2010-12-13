@@ -51,6 +51,7 @@ body, p, ol, ul, td {
 	border:1px solid #000;
 	height:auto;
 	/*faux column background*/
+	background: url(../images/faux.jpg) repeat-y;
 }
 
 #main_wrapper #sidebar {
@@ -63,9 +64,9 @@ body, p, ol, ul, td {
 #main_wrapper #content {
 	float:right;
 	border-left:1px solid #000;
-	width:612px;
+	width:610px;
 	height:auto;
-	padding:5px;
+	padding:5px 5px 5px 7px;
 }
 .clr {
 	clear:both;
@@ -85,6 +86,7 @@ body, p, ol, ul, td {
 	font-size: x-small;
 	color: #ADADAD;
 	text-align: center;
+	margin-left:160px;
 }
 .flash_notice {
 	border: 1px solid #4A777A;
@@ -264,7 +266,6 @@ a:hover.listinglink { text-decoration: none; color: #525252}
 
 .listing_category{
 	text-align: center;
-	
 	position:relative;
 	float:left;
 	width: 100px;
@@ -280,4 +281,64 @@ a:hover.listinglink { text-decoration: none; color: #525252}
 	height:22px;
 	overflow:hidden;
 }
+.button {
+	display:inline-block;
+	float:right;
+	padding: 7px 20px;
+	margin: 7px 3px;
+	border: 1px solid #000;
+	color:#FCFCFC;
+}
+#welcome_head {
+	font-family:sans-serif;
+	font-size: large;
+	color:#4A777A;
+	padding: 15px 18px;
+	float:left;
+}
+#about {
+	float:right;
+	clear:both;
+	padding-right:10px;
+}
+.dashboard_listing{
+	position:relative;
+	float:left;
+	width: 600px;
+	height:50px;
+	overflow:hidden;
+	background-color: #F5F2F3;
+	border: #CCCCCC 1px dotted;
+	padding: 2px;
+}
 
+.dashboard_listing_green{
+	position:relative;
+	float:left;
+	width: 600px;
+	height:50px;
+	overflow:hidden;
+	background-color: #DEF5D5;
+	border: green 1px dotted;
+	padding: 2px;
+}
+
+
+.dashboard_listing_red{
+	position:relative;
+	float:left;
+	width: 600px;
+	height:50px;
+	overflow:hidden;
+	background-color: #FFF5F5;
+	border: red 1px dotted;
+	padding: 2px;
+}
+
+
+.dashboard_listing_msg_count{
+	position:relative;
+	float:right;
+	overflow:hidden;
+	padding: 2px;
+}

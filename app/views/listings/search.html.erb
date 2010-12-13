@@ -9,17 +9,21 @@
     <div class = 'listing_distance'><b>Distance</b></div>
   </div>
   </tr>
-	<% @results.each do |listing| %>
+	<% @dresults.each do |result| %>
 
   	
 	<tr>
 		<div class = 'listing'>
-		<a class = 'listinglink' href='/listings/<%=h listing.id %>'>
-				<div class = 'listing_title'><b><%=h listing["title"] %></b><span style='color:#999999; padding-left: 5px;'><%=h listing["description"] %></span> </div>
-				<div class = 'listing_category'><%=h listing["category"] %></div>
-				<div class = 'listing_distance'>1.1</div>
+		<a class = 'listinglink' href='/listings/<%=h result["listing"].id %>'>
+				<div class = 'listing_title'><b><%=h result["listing"]["title"] %></b><span style='color:#999999; padding-left: 5px;'><%=h result["listing"]["description"] %></span> </div>
+				<div class = 'listing_category'><%=h result["listing"]["category"] %></div>
+				<div class = 'listing_distance'>
+				<% if current_user  or (!@user.lat.nil? && !@user.lng.nil?) -%><%=h "%.2f" % result["distance"] %>
+				<% else %>None
+				<% end %></div>
 		</a>
 		</div>
+
 	</tr>
 	
 	<% end %>

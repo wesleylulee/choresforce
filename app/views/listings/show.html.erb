@@ -2,6 +2,9 @@
 <p>
   <b>Employer:</b>
   <%=h link_to @listing.user.login, @listing.user %>
+  <% if current_user.id==@listing.user.id %><span style="float:right; padding:5px 10px; margin-right:5px; background-color:#EEEBF7;">
+	<%= link_to 'Edit Listing', edit_listing_path(@listing) %></span>
+  <% end %>
 </p>
 
 <p>
@@ -34,7 +37,7 @@
 </p>
 
 <!---
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Edit Listing', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %> -->
 
 <% if current_user and current_user.id!=@listing.user.id %>
@@ -96,7 +99,7 @@
 	
 	<% if @listing.active==false and @past_offer != nil and @past_offer.accepted == true %>
 	<p><center>
-	<img src="http://maps.google.com/maps/api/staticmap?center=<%=h @place[:lat] %>,<%=h @place[:lng] %>&zoom=14&size=600x400&sensor=false&markers=color:red|label:W|<%=h @place[:lat] %>,<%=h @place[:lng] %>">
+	<img src="http://maps.google.com/maps/api/staticmap?center=<%=h @place[:lat] %>,<%=h @place[:lng] %>&zoom=14&size=600x400&sensor=false&markers=color:red|label:B|<%=h @place[:lat] %>,<%=h @place[:lng] %>&markers=color:blue|label:A|<%=h current_user.lat %>,<%=h current_user.lng %>">
 	</center>
 	<% end %>
 	
@@ -116,7 +119,7 @@
 		Payment: $<%=h offer.amount %>
 		
 		<div class='offer_nav'> 
-		<%= link_to_function "Hide/Show Messaging", "$('messaging_for_offer#{offer.id}').toggle()" %>
+		<%= link_to_function("Hide/Show Messaging", "$('messaging_for_offer#{offer.id}').toggle()") %>
 		<% if @listing.active==true %>
 			 | <span style='display:inline-block;'>
 			<%= button_to "Accept Offer", {:action => "acceptOffer", :listing_id => @listing.id, :offer_id => offer.id }, :confirm => "Are you sure?", :method => :acceptOffer %>
