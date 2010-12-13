@@ -2,7 +2,7 @@
 <p>
   <b>Employer:</b>
   <%=h link_to @listing.user.login, @listing.user %>
-  <% if current_user.id==@listing.user.id %><span style="float:right; padding:5px 10px; margin-right:5px; background-color:#EEEBF7;">
+  <% if current_user and current_user.id==@listing.user.id %><span style="float:right; padding:5px 10px; margin-right:5px; background-color:#EEEBF7;">
 	<%= link_to 'Edit Listing', edit_listing_path(@listing) %></span>
   <% end %>
 </p>
@@ -23,7 +23,7 @@
 <% else %>
 <p>
   <b>Distance from you: </b>
-  <%=h "%.2f" % @distance %> miles
+  <% if @distance==-1 %> Unresolved <% else %> <%=h "%.2f" % @distance %> <% end %>miles
 </p>
 <% end %>
 <p>

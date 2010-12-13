@@ -31,7 +31,6 @@ class ListingsController < ApplicationController
 	msgt.save
     end
     # End Add
-
     @distance = LatLng.new(user.lat,user.lng).distance_to(LatLng.new(@listing.lat,@listing.lng))
     if current_user.id!=@listing.user.id
 	@offer = Offer.new
@@ -62,6 +61,13 @@ class ListingsController < ApplicationController
 		@messageblocks[offer.id] = Message.find(:all, :conditions=>{:from=>[current_user.id, offer.user.id ], :to=>[current_user.id, offer.user.id], :listing_id=>@listing.id}, :order=>"created_at")
 	end
     end
+    else
+	geoc = IpGeocoder.geocode(request.remote_ip); 
+	user = User.new(:lat=>geoc.lat, :lng=>geoc.lng)
+	if user.lat.nil? or user.lng.nil?; @distance=-1;	
+	else; @distance = LatLng.new(user.lat,user.lng).distance_to(LatLng.new(@listing.lat,@listing.lng));
+	end
+	
     end
     respond_to do |format|
       format.html # show.html.erb
