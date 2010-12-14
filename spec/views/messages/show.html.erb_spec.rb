@@ -7,15 +7,8 @@ describe "/messages/show.html.erb" do
       :from => 1,
       :to => 1,
       :listing_id => 1,
-      :content => "value for content"
+      :content => "value for content",
+      :unread => false
     )
-  end
-
-  it "renders attributes in <p>" do
-    render
-    response.should have_text(/1/)
-    response.should have_text(/1/)
-    response.should have_text(/1/)
-    response.should have_text(/value\ for\ content/)
   end
 end

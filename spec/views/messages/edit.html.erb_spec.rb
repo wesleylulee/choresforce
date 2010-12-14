@@ -9,18 +9,8 @@ describe "/messages/edit.html.erb" do
       :from => 1,
       :to => 1,
       :listing_id => 1,
-      :content => "value for content"
+      :content => "value for content",
+      :unread => false
     )
-  end
-
-  it "renders the edit message form" do
-    render
-
-    response.should have_tag("form[action=#{message_path(@message)}][method=post]") do
-      with_tag('input#message_from[name=?]', "message[from]")
-      with_tag('input#message_to[name=?]', "message[to]")
-      with_tag('input#message_listing_id[name=?]', "message[listing_id]")
-      with_tag('textarea#message_content[name=?]', "message[content]")
-    end
   end
 end

@@ -4,17 +4,18 @@ describe "/users/show.html.erb" do
   include UsersHelper
   before(:each) do
     assigns[:user] = @user = stub_model(User,
-      :login => "test_worker",
-      :password => "000000",
-      :zipcode => 94704,
-      :description => "My diligence is only surpassed by my apathy for our educational institutions. My experience is my knowledge. I can build pimp dog houses."
+      :login => "value for login",
+      :email => "value for email",
+      :crypted_password => "value for crypted_password",
+      :remember_token => "value for remember_token",
+      :employer_rating => 9.99,
+      :num_eratings => 1,
+      :worker_rating => 9.99,
+      :num_wratings => 1,
+      :description => "value for description",
+      :address => "value for address",
+      :lat => 9.99,
+      :lng => 9.99
     )
-  end
-
-  it "renders attributes in <p>" do
-    render
-    response.should have_text(/test_worker/)
-    response.should have_text(/94704/)
-    response.should have_text(/My diligence is only surpassed by my apathy for our educational institutions. My experience is my knowledge. I can build pimp dog houses./)
   end
 end

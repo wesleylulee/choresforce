@@ -4,26 +4,32 @@ one:
   login: MyString
   email: MyString
   crypted_password: MyString
-  salt: MyString
+  created_at: 2010-12-13 22:57:48
+  updated_at: 2010-12-13 22:57:48
   remember_token: MyString
-  remember_token_expires_at: 2010-11-22 23:27:16
-  zipcode: 1
+  remember_token_expires_at: 2010-12-13 22:57:48
   employer_rating: 9.99
   num_eratings: 1
   worker_rating: 9.99
   num_wratings: 1
   description: MyText
+  address: MyString
+  lat: 9.99
+  lng: 9.99
 
 two:
   login: MyString
   email: MyString
   crypted_password: MyString
-  salt: MyString
+  created_at: 2010-12-13 22:57:48
+  updated_at: 2010-12-13 22:57:48
   remember_token: MyString
-  remember_token_expires_at: 2010-11-22 23:27:16
-  zipcode: 1
+  remember_token_expires_at: 2010-12-13 22:57:48
   employer_rating: 9.99
   num_eratings: 1
   worker_rating: 9.99
   num_wratings: 1
   description: MyText
+  address: MyString
+  lat: 9.99
+  lng: 9.99

@@ -5,9 +5,15 @@ one:
   to: 1
   listing_id: 1
   content: MyText
+  created_at: 2010-12-13 20:47:06
+  updated_at: 2010-12-13 20:47:06
+  unread: false
 
 two:
   from: 1
   to: 1
   listing_id: 1
   content: MyText
+  created_at: 2010-12-13 20:47:06
+  updated_at: 2010-12-13 20:47:06
+  unread: false

@@ -6,20 +6,18 @@ describe "/users/new.html.erb" do
   before(:each) do
     assigns[:user] = stub_model(User,
       :new_record? => true,
-      :login => "value for username",
-      :zipcode => 1,
-      :description => "value for description"
+      :login => "value for login",
+      :email => "value for email",
+      :crypted_password => "value for crypted_password",
+      :remember_token => "value for remember_token",
+      :employer_rating => 9.99,
+      :num_eratings => 1,
+      :worker_rating => 9.99,
+      :num_wratings => 1,
+      :description => "value for description",
+      :address => "value for address",
+      :lat => 9.99,
+      :lng => 9.99
     )
-  end
-
-  it "renders new user form" do
-    render
-
-    response.should have_tag("form[action=?][method=post]", users_path) do
-      with_tag("input#user_login[name=?]", "user[login]")
-      with_tag("input#user_password[name=?]", "user[password]")
-      with_tag("input#user_zipcode[name=?]", "user[zipcode]")
-      with_tag("textarea#user_description[name=?]", "user[description]")
-    end
   end
 end

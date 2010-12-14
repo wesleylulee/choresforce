@@ -15,11 +15,6 @@ describe MessagesController do
   end
 
   describe "GET show" do
-    it "assigns the requested message as @message" do
-      Message.stub(:find).with("37").and_return(mock_message)
-      get :show, :id => "37"
-      assigns[:message].should equal(mock_message)
-    end
   end
 
   describe "GET new" do
@@ -41,31 +36,9 @@ describe MessagesController do
   describe "POST create" do
 
     describe "with valid params" do
-      it "assigns a newly created message as @message" do
-        Message.stub(:new).with({'these' => 'params'}).and_return(mock_message(:save => true))
-        post :create, :message => {:these => 'params'}
-        assigns[:message].should equal(mock_message)
-      end
-
-      it "redirects to the created message" do
-        Message.stub(:new).and_return(mock_message(:save => true))
-        post :create, :message => {}
-        response.should redirect_to(message_url(mock_message))
-      end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved message as @message" do
-        Message.stub(:new).with({'these' => 'params'}).and_return(mock_message(:save => false))
-        post :create, :message => {:these => 'params'}
-        assigns[:message].should equal(mock_message)
-      end
-
-      it "re-renders the 'new' template" do
-        Message.stub(:new).and_return(mock_message(:save => false))
-        post :create, :message => {}
-        response.should render_template('new')
-      end
     end
 
   end

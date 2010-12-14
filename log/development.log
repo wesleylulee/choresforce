@@ -43802,3 +43802,249 @@ Rendering listings/show
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
 Completed in 463ms (View: 58, DB: 4) | 200 OK [http://localhost/listings/3]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-14 01:52:14) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 91ms (View: 88, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-12-14 01:52:16) [GET]
+Rendering template within layouts/general
+Rendering sessions/new
+Completed in 33ms (View: 31, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-12-14 01:52:21) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"BB0dpq8tTJsPDVLHmHpPIoGR+7T+lm/v0Ypy0RCZeho=", "login"=>"tealc", "password"=>"password"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'tealc') LIMIT 1[0m
+Redirected to http://localhost:3000/users
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/session]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-12-14 01:52:21) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+Rendering template within layouts/general
+Rendering users/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #19 of app/views/users/index.html.erb:
+16:     <th>Description</th>
+17:   </tr>
+18: 
+19: <% @users.each do |user| %>
+20:   <tr>
+21:     <td><%=h user.login %></td>
+22:     <td><%=h user.email %></td>
+
+    app/views/users/index.html.erb:19
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (113.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101105003435)
+Migrating to CreateListings (20101108062117)
+Migrating to CreateOffers (20101108063243)
+Migrating to AddActiveFlagToListing (20101129034438)
+Migrating to CreateMessages (20101204094459)
+Migrating to AddAcceptedFlagToOffers (20101206092242)
+Migrating to AddTempRatingsToListings (20101207091548)
+Migrating to AddGeolocationToListings (20101207103228)
+Migrating to AddGeolocationToUsers (20101211001331)
+Migrating to AddFlagsForNotifications (20101212232433)
+  [4;36;1mSQL (15.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("listings")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("offers")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-14 01:53:49) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) LIMIT 1[0m
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."active" = 't' AND "listings"."user_id" = 7) [0m
+  [4;36;1mOffer Load (0.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE ("offers"."user_id" = 7) [0m
+  [4;35;1mListing Load (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mListing Load (0.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."id" = 5) [0m
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 6) [0m
+  [4;36;1mMessage Load (1.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."listing_id" = 6 AND "messages"."unread" = 't' AND "messages"."to" = 7) [0m
+  [4;35;1mListing Load (1.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."active" = 'f' AND "listings"."user_id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "offers" WHERE ("offers"."user_id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 3) [0m
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."listing_id" = 3 AND "messages"."unread" = 't' AND "messages"."to" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 5) [0m
+  [4;36;1mMessage Load (1.0ms)[0m   [0;1mSELECT * FROM "messages" WHERE ("messages"."listing_id" = 5 AND "messages"."unread" = 't' AND "messages"."to" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "listings" WHERE ("listings"."id" = 6) [0m
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 218ms (View: 88, DB: 5) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-12-14 01:53:55) [GET]
+Redirected to http://localhost:3000/
+Completed in 21ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-14 01:54:01) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 27ms (View: 24, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-14 01:54:04) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 26ms (View: 24, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-14 01:54:06) [GET]
+WARNING: Can't mass-assign these protected attributes: worker_rating, num_eratings, employer_rating, num_wratings
+Rendering template within layouts/general
+Rendering users/new
+Completed in 71ms (View: 45, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-14 01:54:23) [POST]
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"eqcKmDqZmt/V2AOuT8/1dR/NnZEXdyJxGBFFw5EPxDA=", "user"=>{"address"=>"2112 Virginia St, Berkeley, CA", "password_confirmation"=>"password", "description"=>"asdfasdf", "password"=>"password", "login"=>"amadou", "email"=>"amadou@gmail.com"}}
+WARNING: Can't mass-assign these protected attributes: address
+
+NameError (uninitialized constant UsersController::GoogleGeocoder):
+  app/controllers/users_controller.rb:17:in `create'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-14 01:58:14) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 90ms (View: 87, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-14 01:58:16) [GET]
+WARNING: Can't mass-assign these protected attributes: worker_rating, num_eratings, employer_rating, num_wratings
+Rendering template within layouts/general
+Rendering users/new
+Completed in 67ms (View: 41, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-14 01:58:33) [POST]
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"eqcKmDqZmt/V2AOuT8/1dR/NnZEXdyJxGBFFw5EPxDA=", "user"=>{"address"=>"2112 Virginia St, Berkeley, CA", "password_confirmation"=>"password", "description"=>"asdfasdf", "password"=>"password", "login"=>"amadou", "email"=>"amadou@gmail.com"}}
+WARNING: Can't mass-assign these protected attributes: address
+
+NameError (uninitialized constant UsersController::GoogleGeocoder):
+  app/controllers/users_controller.rb:17:in `create'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-12-14 01:58:53) [GET]
+Rendering template within layouts/general
+Rendering welcome/index
+Completed in 26ms (View: 24, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListingsController#process_search (for 127.0.0.1 at 2010-12-14 01:58:57) [POST]
+  Parameters: {"radius"=>{"radius"=>"5"}, "commit"=>"Search", "title"=>{"title"=>"Search for work"}, "authenticity_token"=>"eqcKmDqZmt/V2AOuT8/1dR/NnZEXdyJxGBFFw5EPxDA=", "cats"=>["All"], "numResults"=>{"numResults"=>"50"}}
+  [4;36;1mListing Load (1.0ms)[0m   [0;1mSELECT * FROM "listings" WHERE ("listings"."active" = 't') [0m
+WARNING: Can't mass-assign these protected attributes: lng, lat
+Rendering template within layouts/general
+Rendering listings/search
+Completed in 523ms (View: 17, DB: 1) | 200 OK [http://localhost/listings/process_search]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-14 01:59:04) [GET]
+WARNING: Can't mass-assign these protected attributes: worker_rating, num_eratings, employer_rating, num_wratings
+Rendering template within layouts/general
+Rendering users/new
+Completed in 58ms (View: 33, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-14 01:59:30) [POST]
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"eqcKmDqZmt/V2AOuT8/1dR/NnZEXdyJxGBFFw5EPxDA=", "user"=>{"address"=>"2112 Virginia St, Berkeley, CA", "password_confirmation"=>"password", "description"=>"asdfasdf", "password"=>"password", "login"=>"asdf", "email"=>"asdf@asdf.com"}}
+WARNING: Can't mass-assign these protected attributes: address
+Google geocoding. Address: 2112 Virginia St, Berkeley, CA. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>2112 Virginia St, Berkeley, CA</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>2112 Virginia St, Berkeley, CA 94709, USA</address>
+    <AddressDetails Accuracy="8" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Alameda</SubAdministrativeAreaName><Locality><LocalityName>Berkeley</LocalityName><Thoroughfare><ThoroughfareName>2112 Virginia St</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>94709</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="37.8796486" south="37.8733534" east="-122.2650774" west="-122.2713726" />
+    </ExtendedData>
+    <Point><coordinates>-122.2682250,37.8765010,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'asdf') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'asdf@asdf.com') LIMIT 1[0m
+
+ActiveRecord::MissingAttributeError (missing attribute: employer_rating):
+  app/models/user.rb:30:in `after_initialize'
+  app/controllers/users_controller.rb:22:in `create'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)

@@ -9,28 +9,31 @@ describe "/listings/index.html.erb" do
         :user_id => 1,
         :title => "value for title",
         :category => "value for category",
-        :zipcode => 1,
         :description => "value for description",
-        :approx_payment => 9.99
+        :approx_payment => 9.99,
+        :active => false,
+        :worker_rating => 1.5,
+        :employer_rating => 1.5,
+        :address => "value for address",
+        :lat => 9.99,
+        :lng => 9.99,
+        :newOffer => false
       ),
       stub_model(Listing,
         :user_id => 1,
         :title => "value for title",
         :category => "value for category",
-        :zipcode => 1,
         :description => "value for description",
-        :approx_payment => 9.99
+        :approx_payment => 9.99,
+        :active => false,
+        :worker_rating => 1.5,
+        :employer_rating => 1.5,
+        :address => "value for address",
+        :lat => 9.99,
+        :lng => 9.99,
+        :newOffer => false
       )
     ]
   end
 
-  it "renders a list of listings" do
-    render
-    response.should have_tag("tr>td", 1.to_s, 2)
-    response.should have_tag("tr>td", "value for title".to_s, 2)
-    response.should have_tag("tr>td", "value for category".to_s, 2)
-    response.should have_tag("tr>td", 1.to_s, 2)
-    response.should have_tag("tr>td", "value for description".to_s, 2)
-    response.should have_tag("tr>td", 9.99.to_s, 2)
-  end
 end

@@ -9,22 +9,16 @@ describe "/messages/index.html.erb" do
         :from => 1,
         :to => 1,
         :listing_id => 1,
-        :content => "value for content"
+        :content => "value for content",
+        :unread => false
       ),
       stub_model(Message,
         :from => 1,
         :to => 1,
         :listing_id => 1,
-        :content => "value for content"
+        :content => "value for content",
+        :unread => false
       )
     ]
-  end
-
-  it "renders a list of messages" do
-    render
-    response.should have_tag("tr>td", 1.to_s, 2)
-    response.should have_tag("tr>td", 1.to_s, 2)
-    response.should have_tag("tr>td", 1.to_s, 2)
-    response.should have_tag("tr>td", "value for content".to_s, 2)
   end
 end

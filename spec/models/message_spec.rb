@@ -6,7 +6,10 @@ describe Message do
       :from => 1,
       :to => 1,
       :listing_id => 1,
-      :content => "value for content"
+      :content => "value for content",
+      :created_at => Time.now,
+      :updated_at => Time.now,
+      :unread => false
     }
   end
 

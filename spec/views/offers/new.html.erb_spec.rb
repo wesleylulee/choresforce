@@ -9,7 +9,9 @@ describe "/offers/new.html.erb" do
       :user_id => 1,
       :listing_id => 1,
       :amount => 9.99,
-      :distance => 9.99
+      :distance => 9.99,
+      :accepted => false,
+      :listingChanged => false
     )
   end
 
@@ -21,6 +23,8 @@ describe "/offers/new.html.erb" do
       with_tag("input#offer_listing_id[name=?]", "offer[listing_id]")
       with_tag("input#offer_amount[name=?]", "offer[amount]")
       with_tag("input#offer_distance[name=?]", "offer[distance]")
+      with_tag("input#offer_accepted[name=?]", "offer[accepted]")
+      with_tag("input#offer_listingChanged[name=?]", "offer[listingChanged]")
     end
   end
 end
