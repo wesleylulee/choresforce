@@ -1,3 +1,0 @@
-messages back and forth
-solr
-google map stuff
