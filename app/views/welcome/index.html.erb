@@ -5,7 +5,7 @@
 	<br><span class='dashboard_subheading'> Active Listings </span><p>
 
 
-	<% if @biglist != nil %>
+	<% if @biglist.size > 0 %>
 	<% @biglist.each do |listing| %>
 		<a class = 'listinglink' href='/listings/<%=h listing.listing.id %>'>
 			<% if listing.color == 'green' %>
@@ -39,7 +39,7 @@
 	<br><span class='dashboard_subheading'> Inactive Listings</span></p>
 
 	
-	<% if @biginactivelist != nil %>
+	<% if @biginactivelist.size > 0 %>
 	<% @biginactivelist.each do |listing| %>
 		<a class = 'listinglink' href='/listings/<%=h listing.listing.id %>'>
 		
