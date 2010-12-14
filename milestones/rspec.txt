@@ -1,0 +1,6 @@
+(in C:/Users/Daisy/Documents/School/Fall10/CS169/choresforce)
+......................................................................
+
+Finished in 2.927 seconds
+
+70 examples, 0 failures

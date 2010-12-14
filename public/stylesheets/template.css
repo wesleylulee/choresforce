@@ -336,3 +336,22 @@ font-weight:bold;
 color:#4A777A;
 margin-top:15px;
 }
+#login_block{
+	background-color: #E4EBE4;
+	padding:15px;
+	width:400px;
+	margin-top:20px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center;
+	border:1px solid #4A777A;
+}
+#login_head {
+	font-weight:bold;
+	font-variant:small-caps;
+	font-size: x-large;
+	color:#E4EBE4;
+	background-color: #4A777A;
+	width:400px;
+	padding:10px 0px;
+}

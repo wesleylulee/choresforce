@@ -1,27 +1,27 @@
-<h1>Edit Account Details</h1>
+<div style="font-size:large; font-variant:small-caps; font-weight:bold; color:#4A777A; padding-top:15px ;">Edit Account Details</div><hr>
 
 <%= error_messages_for :user %>
 <% form_for @user do |f| -%>
-<p><%= f.label :login %><br/>
-<%= f.text_field :login %></p>
+<p>Login<br/>
+<%= f.text_field :login, :style=>'margin-top:5px;' %></p>
 
-<p><%= f.label :email %><br/>
+<p>Email<br/>
 <%= f.text_field :email %></p>
 
 <a href="#" onClick="document.getElementById('password_change').style.display='';"> Change your Password </a>
 <div id="password_change" style="display:none;">
-	<p><%= f.label :password %><br/>
-	<%= f.password_field :password %></p>
+	<p>Password<br/>
+	<%= f.password_field :password, :style=>'margin-top:5px;' %></p>
 
-	<p><%= f.label :password_confirmation, 'Confirm Password' %><br/>
-	<%= f.password_field :password_confirmation %></p>
+	<p>Confirm Password<br/>
+	<%= f.password_field :password_confirmation, :style=>'margin-top:5px;' %></p>
 </div>
 
-<p><%= f.label :address, 'Address' %><br/>
-<%= f.text_field :address %></p>
+<p>Address<br/>
+<%= f.text_field :address, :style=>'margin-top:5px;' %></p>
 
-<p><%= f.label :description, 'Description' %><br/>
-<%= f.text_area :description %></p>
+<p>Description<br/>
+<%= f.text_area :description, :style=>'margin-top:5px; font-size:small;', :size=>"40x5" %></p>
 
 <p><%= f.submit 'Update' %></p>
 <% end -%>
