@@ -66,35 +66,36 @@
 			<% end %>
 		<% end %>
 		</div>
+		<!--- Messaging --->
+		<% @messages.each do |message| %>
+			<% if message.sender.id == current_user.id %>
+				<div class='message my_message'>
+			<% else %>
+				<div class='message their_message'>
+			<% end %>
+			<%=h link_to message.sender.login, message.sender %> <%=h message.content %>
+			</div>
+		<% end %>
+		<% if @listing.active==true or (@listing.active==false and @past_offer!=nil and @past_offer.accepted==true) %>
+		<% form_for(@new_message, :html=>{:class=>'new_message message'}) do |f| %>
+			<%= f.text_area :content, :size=>"65x2", :title=>'Send a Message', :class=>'auto-clear' %>
+			<%= f.hidden_field :from, :value=>current_user.id %>
+			<%= f.hidden_field :to, :value=>@listing.user.id %>
+			<%= f.hidden_field :listing_id, :value=>@listing.id %>
+			<%= f.submit 'Send' %>
+		<% end %>
+		<% end %>
+		<!--- End Messaging --->
+
 	<% else %>
 		<% form_for(@offer, :html=>{:class=>'service_offer'}) do |f| %>
-		<%= f.error_messages %>
-		<b> Offer to Work: </b> 
-		Service Charge $ <%= f.text_field :amount, :size=>3 %>
-		<%= f.hidden_field :user_id, :value=>current_user.id %>
-		<%= f.hidden_field :listing_id, :value=>@listing.id %>
-		<%= f.submit 'Submit' %>
+			<%= f.error_messages %>
+			<b> Offer to Work: </b> 
+			Service Charge $ <%= f.text_field :amount, :size=>3 %>
+			<%= f.hidden_field :user_id, :value=>current_user.id %>
+			<%= f.hidden_field :listing_id, :value=>@listing.id %>
+			<%= f.submit 'Submit' %>
 		<% end %>
-	<% end %>
-	<!--- Messaging
-	<div class='message messaging_title'> Messaging </div>  --->
-	<% @messages.each do |message| %>
-		<% if message.sender.id == current_user.id %>
-			<div class='message my_message'>
-		<% else %>
-			<div class='message their_message'>
-		<% end %>
-		<%=h link_to message.sender.login, message.sender %> <%=h message.content %>
-		</div>
-	<% end %>
-	<% if @listing.active==true or (@listing.active==false and @past_offer!=nil and @past_offer.accepted==true) %>
-	<% form_for(@new_message, :html=>{:class=>'new_message message'}) do |f| %>
-		<%= f.text_area :content, :size=>"65x2", :placeholder=>'Send a Message' %>
-		<%= f.hidden_field :from, :value=>current_user.id %>
-		<%= f.hidden_field :to, :value=>@listing.user.id %>
-		<%= f.hidden_field :listing_id, :value=>@listing.id %>
-		<%= f.submit 'Send' %>
-	<% end %>
 	<% end %>
 	
 	<% if @listing.active==false and @past_offer != nil and @past_offer.accepted == true %>
@@ -155,7 +156,7 @@
 			</div>
 		<% end %>
 		<% form_for(@new_message, :html=>{:class=>'new_message message'}) do |f| %>
-			<%= f.text_area :content, :size=>"65x2", :placeholder=>'Send a Message' %>
+			<%= f.text_area :content, :size=>"65x2", :title=>'Send a Message', :class=>'auto-clear' %>
 			<%= f.hidden_field :from, :value=>current_user.id %>
 			<%= f.hidden_field :to, :value=>offer.user.id %>
 			<%= f.hidden_field :listing_id, :value=>@listing.id %>

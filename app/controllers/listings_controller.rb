@@ -40,6 +40,12 @@ class ListingsController < ApplicationController
 		@past_offer.listingChanged = false
 		@past_offer.save
 	end
+	
+       @messagesToThisListing = Message.find(:all, :conditions=>{:to =>current_user.id, :listing_id => @listing.id})
+       @messagesToThisListing.each do |msgt|
+                       msgt.unread = false
+                       msgt.save
+       end
 	# End Add
 	if @past_offer!=nil and @past_offer.accepted==true
 		flash.now[:notice] = 'Congratulations! Your offer to work for $' + @past_offer.amount.to_s + ' has been accepted. Check your messages below to recieve further information from the employer'
@@ -108,6 +114,7 @@ class ListingsController < ApplicationController
       @results = nil
       @dresults = []
       if params[:cats].nil?; params[:cats] = ['All']; end
+      if params[:title]["title"]=="Search for work"; params[:title]["title"] = ""; end
       if params[:cats].include?('All')
 	if params[:title]["title"].empty?; @results = Listing.find(:all, :conditions=>{:active=>true})
 	else; @results = Listing.find_with_index(params[:title]["title"], {:conditions=>{:active=>true}})

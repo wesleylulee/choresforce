@@ -94,7 +94,7 @@ class WelcomeController < ApplicationController
 							#@activeGreys.push offer.listing
 							toAdd.msgnum = 0
 							toAdd.color = 'grey'
-							toAdd.msg = ' '
+							toAdd.msg = 'You have offered to work for $%i' % offer.amount
 							@biglist.push toAdd
 						end 
 					 end 
@@ -111,22 +111,22 @@ class WelcomeController < ApplicationController
 		if @listings != nil
 			@listings.each do |ls|
 			
-				#@msgs = Message.find(:all, :conditions=>{:to => current_user.id, :unread => true}) 
+				@msgs = Message.find(:all, :conditions=>{:to => current_user.id, :unread => true, :listing_id => ls.id}) 
 				
 				toAdd = DisplayListing.new
 				toAdd.listing = ls
 							
-				#if @msgs.size > 0
-				#	toAdd.color = 'green'
-				#	toAdd.msgnum = @msgs.size
-				#	toAdd.msg = 'You have new messages for this listing.'
-				#	@biginactivelist.push toAdd
-				#else
+				if @msgs.size > 0
+					toAdd.color = 'green'
+					toAdd.msgnum = @msgs.size
+					toAdd.msg = 'You have new messages for this listing.'
+					@biginactivelist.push toAdd
+				else
 					toAdd.color = 'grey'
 					toAdd.msgnum = 0
-					toAdd.msg = 'You have accepted this offer.'
+					toAdd.msg = 'You have accepted an offer for this listing.'
 					@biginactivelist.push toAdd
-				#end
+				end
 			
 			end
 		end
@@ -140,7 +140,7 @@ class WelcomeController < ApplicationController
 					 @offers.each do |offer| 
 						 if offer.listing.active == false 
 						
-							 #@msgs = Message.find(:all, :conditions=>{:to => current_user.id, :listing_id => offer.listing.id, :unread => true}) 
+								@msgs = Message.find(:all, :conditions=>{:to => current_user.id, :listing_id => offer.listing.id, :unread => true}) 
 							
 								toAdd = DisplayListing.new
 								toAdd.listing = offer.listing
@@ -165,6 +165,12 @@ class WelcomeController < ApplicationController
 									#@inactiveGreens.push offer.listing
 									toAdd.color = 'green'
 									toAdd.msg = 'Congratulations, your offer has been accepted.'
+									toAdd.msgnum = @msgs.size
+									@biginactivelist.push toAdd
+								elsif offer.accepted == true && @msgs.size > 0
+									toAdd.color = 'green'
+									toAdd.msg = 'You have new messages.'
+									toAdd.msgnum = @msgs.size
 									@biginactivelist.push toAdd
 								else 
 									#@inactiveGreys.push offer.listing

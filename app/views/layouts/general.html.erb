@@ -10,18 +10,20 @@
 	<%= javascript_include_tag "stars.js" %>
 	<%= javascript_include_tag "prototype.lite.js" %>
 	<%= stylesheet_link_tag 'stars' %>
+	<script src="../javascripts/input-placeholder-text.js" type="text/javascript"></script>
 </head> 
 <body> 
 <div class="page_frame">
 	<div id="header">
 		<%= link_to '<span id="logo">ChoresForce&#8480;</span>', root_url, :id=>'logo_link' %>
 		<span id="header_nav">
-			<%= link_to 'Home', root_url %> |
 			<% if current_user %> 
+				<%= link_to 'Dashboard', root_url %> |
 				<%= link_to 'Account', account_path %> |
 				<%= link_to 'Logout', logout_path %>
 				<i>(<%= current_user.login %>) </i>
 			<% else %> 
+				<%= link_to 'Home', root_url %> |
 				<%= link_to "Login", login_path %> | 
 				<%= link_to "Register", signup_path %> 
 			<% end %>
@@ -39,7 +41,7 @@
 		//-->
 		</SCRIPT>
 		<%= form_tag :controller => 'listings', :action => 'process_search'%>
-	   		<%= text_field "title", "title", :placeholder=>'Search for work', :size=>23 %><br>
+	   		<%= text_field "title", "title", :title=>'Search for work', :size=>22, :class=>'auto-clear' %><br>
 			<div style='padding:5px 0px;'>
 			<%= check_box_tag 'cats[]' , 'All', true, :class=>'allBox', :onclick =>"toggleCategories();" %><i>All Categories</i><br>
 			<% Listing::CATEGORIES.each do |cat| %>

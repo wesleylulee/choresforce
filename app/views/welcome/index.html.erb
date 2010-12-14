@@ -1,9 +1,8 @@
 <% if current_user %> 
-	<h1>Dashboard</h1>
-	<p>Hi, <%=h current_user.login %>.</p>
-    <%=h @where %>
-
-	<h3> Active Listings </h3>
+	<br>
+	<div style='font-variant:small-caps; color:#52779E; font-size:x-large; font-weight:bold; padding-right:20px; float:left;'>Dashboard</div> <hr style='margin-top:13px;'>
+    	
+	<br><span class='dashboard_subheading'> Active Listings </span><p>
 
 
 	<% if @biglist != nil %>
@@ -11,16 +10,15 @@
 		<a class = 'listinglink' href='/listings/<%=h listing.listing.id %>'>
 			<% if listing.color == 'green' %>
 				<div class = 'dashboard_listing_green'>
-					<b><%=h listing.listing["title"] %></b>
-					<%=h listing.msg %>
+					<b><%=h listing.listing["title"] %></b><br>
 					<div class = 'dashboard_listing_msg_count'>
 					<%=h listing.msgnum %> New Message(s)
 					</div>
-						
+					<%=h listing.msg %>
 				</div>
 			<% else %>
 				<div class = 'dashboard_listing'>
-					<b><%=h listing.listing["title"] %></b>
+					<b><%=h listing.listing["title"] %></b><br>
 					<%=h listing.msg %>
 					<div class = 'dashboard_listing_msg_count'>
 					<%=h listing.msgnum %> New Message(s)
@@ -34,7 +32,7 @@
 
 
 
-	<h3> Inactive Listings</h3>
+	<br><span class='dashboard_subheading'> Inactive Listings</span></p>
 
 	
 	<% if @biginactivelist != nil %>
@@ -43,28 +41,28 @@
 		
 			<% if listing.color == 'red' %>
 				<div class = 'dashboard_listing_red'>
-					<b><%=h listing.listing["title"] %></b>
-					<%=h listing.msg %>
+					<b><%=h listing.listing["title"] %></b><br>
 					<div class = 'dashboard_listing_msg_count'>
 					<%=h listing.msgnum %> New Message(s)
 					</div>
-						
+					<%=h listing.msg %>						
 				</div>
 			<% elsif listing.color == 'green'%>
 				<div class = 'dashboard_listing_green'>
-					<b><%=h listing.listing["title"] %></b>
-					<%=h listing.msg %>
+					<b><%=h listing.listing["title"] %></b><br>
 					<div class = 'dashboard_listing_msg_count'>
 					<%=h listing.msgnum %> New Message(s)
 					</div>
+					<%=h listing.msg %>
 				</div>
 			<% else %>
 				<div class = 'dashboard_listing'>
-					<b><%=h listing.listing["title"] %></b>
-					<%=h listing.msg %>
+					<b><%=h listing.listing["title"] %></b><br>
+
 					<div class = 'dashboard_listing_msg_count'>
 					<%=h listing.msgnum %> New Message(s)
-					</div>
+					</div>					
+<%=h listing.msg %>
 						
 				</div>
 			<% end %>
@@ -72,11 +70,15 @@
 		</a>
 	<% end %>
 	<% end %>
-<% else %> 
-	<img src="../images/plbanner.png" width=100%>	<div id='welcome_head'>Welcome to ChoresForce!</div> 
+<% else %> 	<div id='welcome_head'>Welcome to ChoresForce!</div>
 	<div style='margin-right:80px;'>
 	<%= link_to "Register", signup_path, :class=>'button' %><%= link_to "Login", login_path, :class=>'button' %>
 	</div>
-	<div id='about'>blah blah
-	</div>
+	<div id='about'>
+<span style='font-variant: small-caps; color:#52779E; font-weight:bold;'>Who Are We?</span><br>
+ChoresForce&#8480  is an initiative to provide a web-based platform for <i>micro-employment</i>.<hr><p>
+The service attempts to connect workers in need of short temporary paid work, with busy urbanites or working professionals willing to pay to get some workload such as household chores off their back.<p>
+We envision communities where people are connected across classes to support each others’ needs. Choresforce’s mission is to be the most effective link between those seeking assistance in chores and temporary work seekers. With a very high  unemployment rate, increasing working time for professionals, and the rise in usage of the web for finding jobs and services, we are poised today to have a significant social impact.</div><p>
+
+<center><img src="../images/plbanner.png" style='width:95%;'></center>
 <% end %>

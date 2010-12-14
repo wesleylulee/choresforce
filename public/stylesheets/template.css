@@ -283,11 +283,9 @@ a:hover.listinglink { text-decoration: none; color: #525252}
 }
 .button {
 	display:inline-block;
-	float:right;
 	padding: 7px 20px;
 	margin: 7px 3px;
 	border: 1px solid #000;
-	color:#FCFCFC;
 }
 #welcome_head {
 	font-family:sans-serif;
@@ -297,48 +295,44 @@ a:hover.listinglink { text-decoration: none; color: #525252}
 	float:left;
 }
 #about {
-	float:right;
-	clear:both;
-	padding-right:10px;
+	background-color:#F5F6F7;
+	width:auto;
+	margin:10px;	
+	padding:10px;
 }
 .dashboard_listing{
-	position:relative;
-	float:left;
-	width: 600px;
-	height:50px;
-	overflow:hidden;
-	background-color: #F5F2F3;
-	border: #CCCCCC 1px dotted;
-	padding: 2px;
+	height:40px;
+	background-color: #EBF0F5;
+	padding: 5px;
+	margin-bottom:6px;
+	/*border: 1px solid #507EAB;*/
 }
 
 .dashboard_listing_green{
-	position:relative;
-	float:left;
-	width: 600px;
-	height:50px;
-	overflow:hidden;
+	height:40px;
 	background-color: #DEF5D5;
-	border: green 1px dotted;
-	padding: 2px;
+	/*border: 1px solid #4A777A;*/
+	padding: 5px;
+	margin-bottom:6px;
 }
 
 
 .dashboard_listing_red{
-	position:relative;
-	float:left;
-	width: 600px;
-	height:50px;
-	overflow:hidden;
+	height:40px;
 	background-color: #FFF5F5;
-	border: red 1px dotted;
-	padding: 2px;
+	/*border: 1px solid #BA3C3C;*/
+	padding: 5px;
+	margin-bottom:6px;
 }
 
 
 .dashboard_listing_msg_count{
-	position:relative;
 	float:right;
-	overflow:hidden;
 	padding: 2px;
+}
+.dashboard_subheading {
+font-size:larger;
+font-weight:bold;
+color:#4A777A;
+margin-top:15px;
 }
