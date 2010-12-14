@@ -4,16 +4,6 @@ include Geokit::Geocoders
 class ListingsController < ApplicationController
   layout 'general'
   before_filter :login_required, :except=>[:index, :show, :search, :process_search]
-  # GET /listings
-  # GET /listings.xml
-  def index
-    @listings = Listing.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @listings }
-    end
-  end
 
   # GET /listings/1
   # GET /listings/1.xml
@@ -265,15 +255,5 @@ class ListingsController < ApplicationController
     end
   end
 
-  # DELETE /listings/1
-  # DELETE /listings/1.xml
-  def destroy
-    @listing = Listing.find(params[:id])
-    @listing.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(listings_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

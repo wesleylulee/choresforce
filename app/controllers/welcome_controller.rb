@@ -1,24 +1,17 @@
 class WelcomeController < ApplicationController
 	layout 'general' 
-
 	DisplayListing = Struct.new(:listing, :color, :msgnum, :msg)
-
 	def show
-	
 	end
 	
 	def index 
-		
 		if current_user
-		
-
 			@activeReds = Array.new
 			@activeGreys = Array.new
 			
 			# @inactiveGreens = Array.new
 			# @inactiveReds = Array.new
 			# @inactiveGreys = Array.new
-	
 			
 			#ACTIVE LISTINGS
 			@biglist = Array.new
